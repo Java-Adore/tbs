@@ -46,31 +46,19 @@ public class Constants implements Serializable {
 	public static final String UNABLE_TO_UPLOAD_IMAGE_MESSAGE = "UNABLE_TO_UPLOAD_IMAGE_MESSAGE";
 	public static final TBSException UNABLE_TO_UPLOAD_IMAGE = new TBSException(
 			UNABLE_TO_UPLOAD_IMAGE_MESSAGE);
-	public static final int INTERSECTED_EVENTS_CREATED_BY_USER = -100;
-	public static final int INTERSECTION_WITH_EVENTS_USER_INVITED_IN = -101;
-	public static final String INTERSECTED_EVENTS = "INTERSECTED_EVENTS";
+	
 	public static final ConverterException CONVERSION_EXCEPTION = new ConverterException();
-	public static final String INVITE_MEMBERS_TRANSFORMED = "TRANSFORMED";
+	
 	public static final String GENERAL_MODIFICATES_HAS_BEEN_SAVED = "GENERAL_MODIFICATES_HAS_BEEN_SAVED";
-	public static final int NOT_DECIDED_YET = 0;
-	public static final String EVENT_DELETED_SUCCESSFULLY = "EVENT_DELETED_SUCCESSFULLY";
-	public static final int DECLINE_INVITATION = -1;
-	public static final int ACCEPT_INVITATION = 1;
-	public static final String EVENT_ACCEPTED_ENJOY = "EVENT_ACCEPTED_ENJOY";
-	public static final String MAIN_MENU = "MAIN_MENU";
-	public static final String ADD_NEW_EVENT = "ADD_NEW_EVENT";
-	public static final String MANAGE_EVENT = "MANAGE_EVENT";
+	
 	public static final String LOGOUT = "LOGOUT";
-	public static final String DEFAULT_IMAGE_NAME = "default_image.png";
+	
 	public static final String LOGIN_PAGE = "login.xhtml";
 	public static final Exception EXCEPTION = new Exception();
 	public static final String CURRENT_LOGGED_USER = "CURRENT_LOGGED_USER";
 	public static final NoLoggedUserException NO_LOGGED_USER_EXCEPTION = new NoLoggedUserException();
-	public static final String END_DATE_SHOULD_BE_AFTER_START_DATE = "LAST_AVAILABLE_TIME_TO_ACCEPT_SHOULD_BE_BEFORE_START_DATE";
-	public static final String LAST_AVAILABLE_TIME_TO_ACCEPT_SHOULD_BE_BEFORE_START_DATE = "LAST_AVAILABLE_TIME_TO_ACCEPT_SHOULD_BE_BEFORE_START_DATE";
-	public static final String ADD_BAD_WEATHER = "ADD_BAD_WEATHER";
-	public static final String BAD_WEATHER_ADDED_SUCCESSFULLY = "Bad Weather has been added successfully";
 	
-
-	
+	public static final String TOUR_PACKAGE_ADDED_SUCCESSFULLY = "TOUR_PACKAGE_ADDED_SUCCESSFULLY";
+	public static final String TOUR_PACKAGE_ADDED_FAILED = "TOUR_PACKAGE_ADDED_FAILED";
+	public static final String DEFAULT_IMAGE_NAME = "default_image.png";
 }

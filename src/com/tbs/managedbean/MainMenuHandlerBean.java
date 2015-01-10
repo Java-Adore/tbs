@@ -29,7 +29,9 @@ public class MainMenuHandlerBean implements Serializable {
 	@PostConstruct
 	public void init() {
 
+		
 		model = new DefaultMenuModel();
+		/*
 	    DefaultMenuItem home = new DefaultMenuItem(WebUtils.extractFromBundle(Constants.MAIN_MENU));
 	    home.setUrl("home.xhtml");
 	    home.setIcon("resources/images/home_page.png");
@@ -51,7 +53,7 @@ public class MainMenuHandlerBean implements Serializable {
 	    model.addElement(home);
 	    model.addElement(addEvent);
 	    model.addElement(addBadWeather);
-	    model.addElement(manageEvent);
+	    model.addElement(manageEvent);*/
 
 	}
 

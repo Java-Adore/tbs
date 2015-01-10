@@ -1,11 +1,11 @@
 package com.tbs.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
-import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
@@ -16,8 +16,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.hibernate.Session;
-
+import com.tbs.entity.TourPackage;
 import com.tbs.general.Marker;
 
 @Singleton
@@ -71,6 +70,7 @@ public abstract class AbstractDAO<T extends Marker> implements Serializable {
 		}
 		
 	}
+	
 
 	public T getEntityByID(Class clss, Long ID) {
 		return (T) entityManager.find(clss, ID);
@@ -133,6 +133,4 @@ public abstract class AbstractDAO<T extends Marker> implements Serializable {
 
 	}
 	
-	
-
 }
