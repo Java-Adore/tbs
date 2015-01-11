@@ -78,6 +78,22 @@ body {
 	position:relative !important;
 }
 
+.ui-datepicker thead {  
+    background-color: #EFF2FB; 
+}
+
+.ui-datepicker .ui-widget-content .ui-datepicker-header{
+    background-color: #EFF2FB;
+}
+
+
+.ui-datepicker table {  
+    background-color: #EFF2FB;  
+} 
+.ui-datepicker th { 
+	background-color: #EFF2FB;
+}
+
 .ui-fieldset{max-width: 70% !important ; min-width: 1000px !important ; margin-top:30px !important; }
 
  .ui-panelgrid {background:transparent !important; width:100% !important;}

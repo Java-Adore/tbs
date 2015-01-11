@@ -18,8 +18,10 @@ public class TourPackageSrviceImpl implements TourPackageSrvice {
 	TourPackageDAO tourPackageDAO;
 	
 	@Override
-	public TourPackage addNewTourPackage(TourPackage tourPackage){
-		
-		return tourPackageDAO.addTourPackage(tourPackage);
+	public TourPackage addNewTourPackage(TourPackage tourPackage) throws TBSException{
+		if(tourPackageDAO.getTourPackage(tourPackage)==null)
+			return tourPackageDAO.addTourPackage(tourPackage);
+		else
+			throw Constants.DUPLICATED_TOUR_CODE_ERROR;
 	}
 }

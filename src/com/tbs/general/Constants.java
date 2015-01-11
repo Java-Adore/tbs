@@ -34,6 +34,14 @@ public class Constants implements Serializable {
 
 	public static final TBSException invalidEmail = new TBSException(
 			MEMBER_INVALID_EMAIL);
+	public static final String DUPLICATED_TOUR_CODE = "DUPLICATED_TOUR_CODE";
+	public static final TBSException DUPLICATED_TOUR_CODE_ERROR = new TBSException(
+			DUPLICATED_TOUR_CODE);
+	
+	public static final String RUNTIME_EXCEPTION = "TBS_RUNTIME_EXCEPTION";
+	public static final TBSException TBS_RUNTIME_EXCEPTION = new TBSException(
+			RUNTIME_EXCEPTION);
+	
 	public static final TBSException invalidPassword = new TBSException(
 			MEMBER_INVALID_PASSOWRD);
 	public static final TBSException EMAIL_ALREADY_EXISTS = new TBSException(

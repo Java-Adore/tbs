@@ -28,10 +28,10 @@
 		<div
 			style="width: 100%; bborder: 2px solid red; background: black; color: yellow; position: absolute; top: 0px; left: 0px;">
 			<h:form>
-			<p:outputLabel
+			<h:outputLabel
 				value="welcome #{helperBean.getCurrentMember().lastName.concat(' ').concat(helperBean.getCurrentMember().firstName) }" />
 			
-			<p:commandLink
+			<h:commandLink
 				value=" (#{loc.SIGN_OUT } )" actionListener="#{logoutHandlerBean.logout()}" style="color:white !important;" />
 			</h:form> 
 		</div>

@@ -14,31 +14,32 @@
 			<tr>
 				<td>
 					<h:form id="form">
-					<p:growl/>
+					<h:messages />
+					
 						<p:fieldset legend="#{loc.signInLbl}" style="margin-bottom:20px;align:right;">
 							<p:panelGrid id="idPanellogin" style="border:none;">
   								<p:row>
     								<p:column>
-    									<p:outputLabel value="#{loc.usernameLbl}" />
+    									<h:outputLabel value="#{loc.usernameLbl}" />
     								</p:column>
     								<p:column>
-    									<p:inputText id="email"  value="#{loginBean.email}" required="true" requiredMessage="#{loc.GENERAL_EMAIL_IS_REQUIRED}"/>
+    									<h:inputText id="email"  value="#{loginBean.email}" required="true" requiredMessage="#{loc.GENERAL_EMAIL_IS_REQUIRED}"/>
     								</p:column>
   								</p:row>
   								<p:row>
     								<p:column>
-    									<p:outputLabel value="#{loc.passwordLbl}" />
+    									<h:outputLabel value="#{loc.passwordLbl}" />
     								</p:column>
     								<p:column>
-    									<p:password id="pass"  value="#{loginBean.password}" required="true" requiredMessage="#{loc.GENERAL_PASSOWRD_IS_REQURED}"/>
+    									<h:password id="pass"  value="#{loginBean.password}" required="true" requiredMessage="#{loc.GENERAL_PASSOWRD_IS_REQURED}"/>
     								</p:column>
   								</p:row>
   								<p:row>
     								<p:column colspan="2" style="text-align:center;">
-    									<p:commandButton id="submit" value="#{loc.login}" update="@form" actionListener="#{loginBean.login()}"/>
+    									<h:commandButton id="submit" value="#{loc.login}" update="@form" actionListener="#{loginBean.login()}"/>
     								</p:column>
     								<p:column colspan="2" style="text-align:center;">
-    									<p:commandButton id="reg" value="#{loc.NEW_USER}" immediate="true" ajax="false" action="register.xhtml?faces-redirect=true"/>
+    									<h:commandButton id="reg" value="#{loc.NEW_USER}" immediate="true" ajax="false" action="register.xhtml?faces-redirect=true"/>
     								</p:column>
   								</p:row>
 <!--   								<p:row> -->

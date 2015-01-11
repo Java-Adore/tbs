@@ -18,3 +18,15 @@ $(document).ready(function(){
 	$('footerDiv').css( "height", screen.height*.05);
 	
 });*/
+/*
+$(function() {
+	alert("hhhhhhhhhhh");
+    $( "#form:tourDate" ).datepicker();
+    $( "#form:tourDate" ).datepicker("show");
+ });*/
+
+$(document).ready(function() {
+
+    $(".tourDate").datepicker({ dateFormat: 'yy-mm-dd' });
+
+});

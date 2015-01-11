@@ -34,7 +34,7 @@ public class TourPackageBean implements Serializable {
 	
 	private String departFrom;
 	
-	private String detination;
+	private String destination;
 	
 	private Date today;
 	
@@ -75,12 +75,12 @@ public class TourPackageBean implements Serializable {
 		this.departFrom = departFrom;
 	}
 
-	public String getDetination() {
-		return detination;
+	public String getDestination() {
+		return destination;
 	}
 
-	public void setDetination(String detination) {
-		this.detination = detination;
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
 
 	public Date getToday() {
@@ -90,16 +90,21 @@ public class TourPackageBean implements Serializable {
 	public void addNewPackage(){
 		try {
 			
-			
-			TourPackage tourPackage = tourPackageFacade.addNewTourPackage(tourCode, vehicleNumberPlate, tourDate, departFrom, detination);
-			
+			TourPackage tourPackage = tourPackageFacade.addNewTourPackage(tourCode, vehicleNumberPlate, tourDate, departFrom, destination);
+			resetAttributes();
 			WebUtils.fireInfoMessage(Constants.TOUR_PACKAGE_ADDED_SUCCESSFULLY);
 			
-			
-
 		} catch (TBSException e) {
 
 			WebUtils.fireErrorMessage(e.getMessageKey());
 		}
+	}
+	
+	public void resetAttributes(){
+		this.tourCode="";
+		this.vehicleNumberPlate="";
+		this.tourDate = new Date();
+		this.departFrom="";
+		this.destination="";
 	}
 }
