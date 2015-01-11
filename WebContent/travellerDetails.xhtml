@@ -12,9 +12,19 @@
 	<ui:define name="content">
 
 					<h:form id="form">
-						<p:fieldset legend="#{loc.TRAVELLER_DETAILS_ADD_TRAVELLER_DETAILS}" style="margin-bottom:20px;align:right;">
+						<p:fieldset id="fieldset" legend="#{loc.TRAVELLER_DETAILS_ADD_TRAVELLER_DETAILS}" style="margin-bottom:20px;align:right;">
 							<h:messages style="color:#0040FF;"/>
 							<h:panelGrid id="traveller" columns="2">
+								
+								<f:facet name="header">
+        							<br />
+        							<h:selectOneRadio value="#{travellerBean.travellerType}">
+        								<f:selectItem itemLabel="Domestic" itemValue="domestic"/>
+        								<f:selectItem itemLabel="International" itemValue="international"/>
+        								<f:ajax execute="@this" render="@all :domesticTraveller :internationalTraveller" />
+   									</h:selectOneRadio>
+   									<br />
+   								</f:facet>
 								
 								<h:outputLabel value="#{loc.TRAVELLER_LBL_FIRST_NAME}" />
 								<h:inputText value="#{travellerBean.firstName}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_FIRST_NAME_IS_REQUIRED}"/>
@@ -30,16 +40,6 @@
         						
             					<h:outputLabel value="#{loc.TRAVELLER_LBL_EMAIL_ADDRESS}" />
             					<h:inputText value="#{travellerBean.emailAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_EMAIL_ADDRESS_IS_REQUIRED}"/>
-        						
-        						<f:facet name="footer">
-        							<br />
-        							<h:selectOneRadio value="#{travellerBean.travellerType}">
-        								<f:selectItem itemLabel="Domestic" itemValue="domestic"/>
-        								<f:selectItem itemLabel="International" itemValue="international"/>
-        								<f:ajax render=":domesticTraveller :internationalTraveller" />
-   									</h:selectOneRadio>
-   									<br />
-   								</f:facet>
         						
         						<f:facet name="footer">
         						<h:panelGrid id="domesticTraveller" columns="2" rendered="#{travellerBean.domesticFlag}">
@@ -70,7 +70,8 @@
         						</h:panelGrid>
         						</f:facet>
         						<f:facet name="footer">
-        						<h:commandButton id="submit" value="#{loc.GENERAL_SUBMIT_BUTTON}" ajax="true" update=":form" actionListener="#{tourPackageBean.addNewTraveller()}"/>
+        							<br />
+        							<h:commandButton id="submit" value="#{loc.GENERAL_SUBMIT_BUTTON}" ajax="true" update=":form" actionListener="#{tourPackageBean.addNewTraveller()}"/>
         						</f:facet>
     						</h:panelGrid>
     					</p:fieldset>

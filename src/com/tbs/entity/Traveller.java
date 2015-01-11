@@ -43,6 +43,7 @@ public class Traveller implements Serializable,Marker{
 	@Column(name="email_address")
 	private String emailAddress;
 	
+	
 	@ManyToMany
     @JoinTable(name="tour_sales",
         joinColumns=

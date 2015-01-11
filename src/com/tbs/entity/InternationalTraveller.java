@@ -23,6 +23,25 @@ public class InternationalTraveller extends Traveller implements Serializable,Ma
 	@Column(name="visa_number")
 	private String visaNumber;
 
+	
+	public InternationalTraveller(){
+		
+	}
+	
+	public InternationalTraveller(String firstName, String lastName, String residentialAddress,
+			String contactTelephone, String emailAddress, String passportNumber,
+			String passportCountry, String visaNumber){
+		
+		setFirstName(firstName);
+		setLastName(lastName);
+		setResidentialAddress(residentialAddress);
+		setContactTelephone(contactTelephone);
+		setEmailAddress(emailAddress);
+		this.passportNumber=passportNumber;
+		this.passportCountry=passportCountry;
+		this.visaNumber=visaNumber;
+	}
+	
 	public String getPassportNumber() {
 		return passportNumber;
 	}

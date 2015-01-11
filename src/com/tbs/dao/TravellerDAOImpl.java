@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+import com.tbs.entity.DomesticTraveller;
+import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.Traveller;
 
 @Singleton
@@ -24,6 +26,17 @@ public class TravellerDAOImpl extends AbstractDAO<Traveller> implements Travelle
 	public Traveller addTraveller(Traveller traveller) {
 
 		return super.persist(traveller);
+	}
+
+	@Override
+	public DomesticTraveller addDomesticTraveller(DomesticTraveller domesticTraveller) {
+		return null;
+	}
+
+	@Override
+	public InternationalTraveller addInternationalTraveller(InternationalTraveller internationalTraveller) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	/*

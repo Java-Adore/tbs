@@ -1,0 +1,81 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="template/master.xhtml">
+
+	<ui:define name="title">
+		<title>#{loc.GET_INFO_PAGE_TITLE}</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="form">
+			<p:fieldset id="fieldset" legend="#{loc.GET_INFO_GET_INFO}"
+				style="margin-bottom:20px;align:right;">
+				<h:messages style="color:#0040FF;" />
+				
+				<p:dataTable var="tourPackage" value="#{getInfoBean.tourPackages}" widgetVar="tourPackagesTable" filteredValue="#{getInfoBean.filteredPackages}"
+                 	emptyMessage="No tour packages found with given criteria" rows="4" paginator="true">
+ 
+        			<f:facet name="header">
+            			<p:outputPanel>
+                			<h:outputText value="Search all fields in package table:" />
+                			<p:inputText id="globalFilter" onkeyup="PF('tourPackagesTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+            			</p:outputPanel>
+        			</f:facet>
+        			<p:column filterBy="#{tourPackage.tourCode}" headerText="Tour Code" footerText="Tour Code" filterMatchMode="contains">
+            			<h:outputText value="#{tourPackage.tourCode}" />
+        			</p:column>
+        			<p:column filterBy="#{tourPackage.vehicleNumberPlate}" headerText="Vehicle Number Plate" footerText="Vehicle Number Plate" filterMatchMode="contains">
+            			<h:outputText value="#{tourPackage.vehicleNumberPlate}" />
+        			</p:column>
+        			<p:column filterBy="#{tourPackage.tourDate}" headerText="Tour Date" footerText="Tour Date" filterMatchMode="contains">
+            			<h:outputText value="#{tourPackage.tourDate}" />
+        			</p:column>
+        			<p:column filterBy="#{tourPackage.departFrom}" headerText="Depart from" footerText="Depart from" filterMatchMode="contains">
+            			<h:outputText value="#{tourPackage.departFrom}" />
+        			</p:column>
+        			<p:column filterBy="#{tourPackage.detination}" headerText="Destination" footerText="Destination" filterMatchMode="contains">
+            			<h:outputText value="#{tourPackage.detination}" />
+        			</p:column>
+        		</p:dataTable>
+				
+				
+				<br />
+				<br />
+				
+				
+				
+				<p:dataTable var="traveller" value="#{getInfoBean.travellers}" widgetVar="travellersTable" filteredValue="#{getInfoBean.filteredTravellers}"
+                 	emptyMessage="No travellers found with given criteria" rows="4" paginator="true">
+ 
+        			<f:facet name="header">
+            			<p:outputPanel>
+                			<h:outputText value="Search all fields in Travellers table:" />
+                			<p:inputText id="globalFilter" onkeyup="PF('travellersTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+            			</p:outputPanel>
+        			</f:facet>
+        			<p:column filterBy="#{traveller.firstName}" headerText="First Name" footerText="First Name" filterMatchMode="contains">
+            			<h:outputText value="#{traveller.firstName}" />
+        			</p:column>
+        			<p:column filterBy="#{traveller.lastName}" headerText="Last Name" footerText="Last Name" filterMatchMode="contains">
+            			<h:outputText value="#{traveller.lastName}" />
+        			</p:column>
+        			<p:column filterBy="#{traveller.residentialAddress}" headerText="Residential Address" footerText="Residential Address" filterMatchMode="contains">
+            			<h:outputText value="#{traveller.residentialAddress}" />
+        			</p:column>
+        			<p:column filterBy="#{traveller.contactTelephone}" headerText="Contact Telephone" footerText="Contact Telephone" filterMatchMode="contains">
+            			<h:outputText value="#{traveller.contactTelephone}" />
+        			</p:column>
+        			<p:column filterBy="#{traveller.emailAddress}" headerText="Email Address" footerText="Email Address" filterMatchMode="contains">
+            			<h:outputText value="#{traveller.emailAddress}" />
+        			</p:column>
+        		</p:dataTable>
+
+			</p:fieldset>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

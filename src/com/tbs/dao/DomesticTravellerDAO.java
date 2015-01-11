@@ -8,11 +8,7 @@ import com.tbs.entity.Traveller;
 
 
 @Local
-public interface TravellerDAO {
-	
-	public Traveller addTraveller(Traveller traveller);
+public interface DomesticTravellerDAO {
 	
 	public DomesticTraveller addDomesticTraveller(DomesticTraveller domesticTraveller);
-	
-	public InternationalTraveller addInternationalTraveller(InternationalTraveller internationalTraveller);
 }

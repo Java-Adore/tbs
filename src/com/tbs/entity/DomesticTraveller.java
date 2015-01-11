@@ -26,6 +26,24 @@ public class DomesticTraveller extends Traveller implements Serializable,Marker{
 	public String getPhotoIdentificationType() {
 		return photoIdentificationType;
 	}
+	
+	public DomesticTraveller(){
+		
+	}
+	
+	public DomesticTraveller(String firstName, String lastName, String residentialAddress,
+			String contactTelephone, String emailAddress, String photoIdentificationType,
+			String photoIdentificationIssuer, String photoIdentificationNumber){
+		
+		setFirstName(firstName);
+		setLastName(lastName);
+		setResidentialAddress(residentialAddress);
+		setContactTelephone(contactTelephone);
+		setEmailAddress(emailAddress);
+		this.photoIdentificationType=photoIdentificationType;
+		this.photoIdentificationIssuer=photoIdentificationIssuer;
+		this.photoIdentificationNumber=photoIdentificationNumber;
+	}
 
 	public void setPhotoIdentificationType(String photoIdentificationType) {
 		this.photoIdentificationType = photoIdentificationType;
