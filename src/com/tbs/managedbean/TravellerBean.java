@@ -2,6 +2,7 @@ package com.tbs.managedbean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Hashtable;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -51,8 +52,17 @@ public class TravellerBean implements Serializable {
 	
 	private String visaNumber;
 	
+	private boolean domesticFlag;
+	private boolean internationalFlag;
 	
+	private String travellerType="domestic";
 	
+	@PostConstruct
+	public void init(){
+		domesticFlag=true;
+		internationalFlag=false;
+	}
+
 	public TourPackageFacade getTourPackageFacade() {
 		return tourPackageFacade;
 	}
@@ -147,6 +157,32 @@ public class TravellerBean implements Serializable {
 
 	public void setVisaNumber(String visaNumber) {
 		this.visaNumber = visaNumber;
+	}
+	
+
+	public String getTravellerType() {
+		return travellerType;
+	}
+
+	public void setTravellerType(String travellerType) {
+		if(travellerType.equals("domestic")){
+			this.domesticFlag=true;
+			this.internationalFlag=false;
+		}
+		else if(travellerType.equals("international")){
+			this.domesticFlag=false;
+			this.internationalFlag=true;
+		}
+		this.travellerType = travellerType;
+	}
+	
+
+	public boolean isDomesticFlag() {
+		return domesticFlag;
+	}
+
+	public boolean isInternationalFlag() {
+		return internationalFlag;
 	}
 
 	public void addNewTraveller(){
