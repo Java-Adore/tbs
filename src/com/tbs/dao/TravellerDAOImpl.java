@@ -29,14 +29,13 @@ public class TravellerDAOImpl extends AbstractDAO<Traveller> implements Travelle
 	}
 
 	@Override
-	public DomesticTraveller addDomesticTraveller(DomesticTraveller domesticTraveller) {
-		return null;
+	public Traveller addDomesticTraveller(DomesticTraveller domesticTraveller) {
+		return super.persist(domesticTraveller);
 	}
 
 	@Override
-	public InternationalTraveller addInternationalTraveller(InternationalTraveller internationalTraveller) {
-		// TODO Auto-generated method stub
-		return null;
+	public Traveller addInternationalTraveller(InternationalTraveller internationalTraveller) {
+		return super.persist(internationalTraveller);
 	}
 	
 	/*

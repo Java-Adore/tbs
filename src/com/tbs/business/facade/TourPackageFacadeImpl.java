@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import com.tbs.business.service.TourPackageSrvice;
+import com.tbs.business.service.TourPackageService;
 import com.tbs.entity.TourPackage;
 import com.tbs.general.TBSException;
 
@@ -13,7 +13,7 @@ import com.tbs.general.TBSException;
 public class TourPackageFacadeImpl implements TourPackageFacade {
 
 	@EJB
-	TourPackageSrvice tourPackageSrvice;
+	TourPackageService tourPackageSrvice;
 	
 	@Override
 	public TourPackage addNewTourPackage(String tourCode,

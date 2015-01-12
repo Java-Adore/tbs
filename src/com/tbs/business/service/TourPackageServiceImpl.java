@@ -10,7 +10,7 @@ import com.tbs.entity.TourPackage;
 import com.tbs.general.*;
 
 @Stateless
-public class TourPackageSrviceImpl implements TourPackageSrvice {
+public class TourPackageServiceImpl implements TourPackageService {
 
 	private static final long serialVersionUID = 1L;
 	

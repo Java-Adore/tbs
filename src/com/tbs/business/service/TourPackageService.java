@@ -10,7 +10,7 @@ import com.tbs.entity.TourPackage;
 import com.tbs.general.TBSException;
 
 @Local
-public interface TourPackageSrvice extends Serializable{
+public interface TourPackageService extends Serializable{
 
 	public TourPackage addNewTourPackage(TourPackage tourPackage) throws TBSException;
 

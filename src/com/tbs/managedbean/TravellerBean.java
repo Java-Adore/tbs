@@ -12,6 +12,9 @@ import javax.persistence.Column;
 
 import com.general.utils.WebUtils;
 import com.tbs.business.facade.TourPackageFacade;
+import com.tbs.business.facade.TravellerFacade;
+import com.tbs.entity.DomesticTraveller;
+import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.TourPackage;
 import com.tbs.general.Constants;
 import com.tbs.general.TBSException;
@@ -27,6 +30,9 @@ public class TravellerBean implements Serializable {
 
 	@EJB
 	TourPackageFacade tourPackageFacade;
+	
+	@EJB
+	TravellerFacade travellerFacade;
 
 	private String firstName;
 
@@ -186,20 +192,46 @@ public class TravellerBean implements Serializable {
 	}
 
 	public void addNewTraveller(){
-		/*
+		
 		try {
 			
-			TourPackage tourPackage = tourPackageFacade.addNewTourPackage(tourCode, vehicleNumberPlate, tourDate, departFrom, destination);
+			DomesticTraveller domesticTraveller=null;
+			InternationalTraveller internationalTraveller=null;
+			
+			if(travellerType.equals("domestic")){
+				
+				domesticTraveller = travellerFacade.addDomesticTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
+				WebUtils.fireInfoMessage(Constants.DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY);
+			}
+			else if(travellerType.equals("international")){
+				
+				internationalTraveller = travellerFacade.addInternationalTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, passportNumber, passportCountry, visaNumber);
+				WebUtils.fireInfoMessage(Constants.INTERNATIONAL_TRAVELLER_ADDED_SUCCESSFULLY);
+			}
+				
+			
+			//TourPackage tourPackage = tourPackageFacade.addNewTourPackage(tourCode, vehicleNumberPlate, tourDate, departFrom, destination);
 			resetAttributes();
-			WebUtils.fireInfoMessage(Constants.TOUR_PACKAGE_ADDED_SUCCESSFULLY);
+			
 			
 		} catch (TBSException e) {
 
 			WebUtils.fireErrorMessage(e.getMessageKey());
-		}*/
+		}
 	}
 	
 	public void resetAttributes(){
+		this.firstName="";
+		this.lastName="";
+		this.residentialAddress="";
+		this.contactTelephone="";
+		this.emailAddress="";
+		this.photoIdentificationType="";
+		this.photoIdentificationIssuer="";
+		this.photoIdentificationNumber="";
+		this.passportNumber="";
+		this.passportCountry="";
+		this.visaNumber="";
 		
 	}
 }

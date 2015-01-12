@@ -16,6 +16,8 @@ import java.util.Date;
 import javax.faces.convert.ConverterException;
 
 
+
+
 import com.general.utils.NoLoggedUserException;
 
 
@@ -41,6 +43,10 @@ public class Constants implements Serializable {
 	public static final String RUNTIME_EXCEPTION = "TBS_RUNTIME_EXCEPTION";
 	public static final TBSException TBS_RUNTIME_EXCEPTION = new TBSException(
 			RUNTIME_EXCEPTION);
+	
+	public static final String TRAVELLER_CASTING = "TBS_TRAVELLER_CASTING_EXCEPTION";
+	public static final TBSException TBS_TRAVELLER_CASTING_EXCEPTION = new TBSException(
+			TRAVELLER_CASTING);
 	
 	public static final TBSException invalidPassword = new TBSException(
 			MEMBER_INVALID_PASSOWRD);
@@ -69,4 +75,6 @@ public class Constants implements Serializable {
 	public static final String TOUR_PACKAGE_ADDED_SUCCESSFULLY = "TOUR_PACKAGE_ADDED_SUCCESSFULLY";
 	public static final String TOUR_PACKAGE_ADDED_FAILED = "TOUR_PACKAGE_ADDED_FAILED";
 	public static final String DEFAULT_IMAGE_NAME = "default_image.png";
+	public static final String DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY = "DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY";
+	public static final String INTERNATIONAL_TRAVELLER_ADDED_SUCCESSFULLY = "INTERNATIONAL_TRAVELLER_ADDED_SUCCESSFULLY";
 }
