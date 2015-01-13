@@ -1,6 +1,7 @@
 package com.tbs.business.service;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -33,6 +34,12 @@ public class TravellerServiceImpl implements TravellerService {
 			InternationalTraveller internationalTraveller) throws TBSException {
 		
 		return travellerDAO.addInternationalTraveller(internationalTraveller);
+	}
+
+	@Override
+	public List<Traveller> getAllTravellers() throws TBSException {
+		
+		return travellerDAO.getAllTravellers();
 	}
 	
 	

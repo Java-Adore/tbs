@@ -10,7 +10,10 @@ import javax.persistence.Query;
 
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.TourPackage;
 import com.tbs.entity.Traveller;
+import com.tbs.general.Constants;
+import com.tbs.general.TBSException;
 
 @Singleton
 public class TravellerDAOImpl extends AbstractDAO<Traveller> implements TravellerDAO{
@@ -36,6 +39,59 @@ public class TravellerDAOImpl extends AbstractDAO<Traveller> implements Travelle
 	@Override
 	public Traveller addInternationalTraveller(InternationalTraveller internationalTraveller) {
 		return super.persist(internationalTraveller);
+	}
+
+	@Override
+	public List<Traveller> getAllTravellers() throws TBSException {
+		EntityTransaction transaction = getEntityManager().getTransaction();
+		List<Traveller> result = null;
+		try {
+			if (transaction.isActive() == false) {
+				transaction.begin();
+			}
+			Query query = getEntityManager().createQuery("from Traveller t");
+			
+			result = query.getResultList();
+			transaction.commit();
+			
+		}catch(Exception ex){
+			transaction.rollback();
+			ex.printStackTrace();
+			throw Constants.TBS_RUNTIME_EXCEPTION;
+		}
+		
+		return result;
+	}
+
+	@Override
+	public Traveller getTravellerByID(Long travellerID) throws TBSException {
+		
+		EntityTransaction transaction = getEntityManager().getTransaction();
+		List<Traveller> queryResult = new ArrayList();
+		Traveller traveller = null;
+		
+		try {
+			if (transaction.isActive() == false) {
+				transaction.begin();
+			}
+			Query query = getEntityManager().createQuery("from Traveller t where t.ID=:travellerID");
+			query.setParameter("travellerID", travellerID);
+			
+			queryResult = query.getResultList();
+			if(queryResult.size()>0)
+			{
+				traveller = queryResult.get(0);
+			}
+			
+			transaction.commit();
+			
+		}catch(Exception ex){
+			transaction.rollback();
+			ex.printStackTrace();
+			throw Constants.TBS_RUNTIME_EXCEPTION;
+		}
+		
+		return traveller;
 	}
 	
 	/*

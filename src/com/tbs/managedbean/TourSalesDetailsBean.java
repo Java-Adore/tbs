@@ -1,17 +1,15 @@
 package com.tbs.managedbean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import com.general.utils.WebUtils;
-import com.tbs.business.facade.TourPackageFacade;
+import com.tbs.business.facade.TourSalesFacade;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.Traveller;
@@ -41,81 +39,88 @@ public class TourSalesDetailsBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	TourPackageFacade tourPackageFacade;
+	TourSalesFacade tourSalesFacade;
 	
 	private List<TourPackage> tourPackages;
 	
 	private List<Traveller> travellers;
 	
 	
-	private TourPackage selectedTourPackage;
-	private Traveller selectedTraveller;
+	private Long selectedTourPackageID;
+	private Long selectedTravellerID;
 	
 	public List<TourPackage> getTourPackages() {
-		tourPackages = new ArrayList();
-		tourPackages.add(tp1);
-		tourPackages.add(tp2);
-		tourPackages.add(tp3);
-		tourPackages.add(tp4);
-		tourPackages.add(tp5);
+
+		try {
+			
+			tourPackages = tourSalesFacade.getAllTourPackages();
+			
+		} catch (TBSException e) {
+
+			WebUtils.fireErrorMessage(e.getMessageKey());
+		}
 		
 		return tourPackages;
 	}
 
-	public void setTourPackages(List<TourPackage> tourPackages) {
-		this.tourPackages = tourPackages;
-	}
 
 	public List<Traveller> getTravellers() {
-		travellers = new ArrayList();
-		travellers.add(tr1);
-		travellers.add(tr2);
-		travellers.add(tr3);
-		travellers.add(tr4);
-		travellers.add(tr5);
+		
+		try {
+			
+			travellers = tourSalesFacade.getAllTravellers();
+			
+		} catch (TBSException e) {
+
+			WebUtils.fireErrorMessage(e.getMessageKey());
+		}
 		
 		return travellers;
 	}
 
-	public void setTravellers(List<Traveller> travellers) {
-		this.travellers = travellers;
-	}
-	
 
-	public TourPackage getSelectedTourPackage() {
-		return selectedTourPackage;
+	public Long getSelectedTourPackageID() {
+		return selectedTourPackageID;
 	}
 
-	public void setSelectedTourPackage(TourPackage selectedTourPackage) {
-		this.selectedTourPackage = selectedTourPackage;
+
+	public void setSelectedTourPackageID(Long selectedTourPackageID) {
+		this.selectedTourPackageID = selectedTourPackageID;
 	}
 
-	public Traveller getSelectedTraveller() {
-		return selectedTraveller;
+
+	public Long getSelectedTravellerID() {
+		return selectedTravellerID;
 	}
 
-	public void setSelectedTraveller(Traveller selectedTraveller) {
-		this.selectedTraveller = selectedTraveller;
+
+	public void setSelectedTravellerID(Long selectedTravellerID) {
+		this.selectedTravellerID = selectedTravellerID;
 	}
+
 
 	public void addNewTourSalesDetails(){
 		
-		TourPackage tpResult = selectedTourPackage;
-		Traveller trResult = selectedTraveller;
 		
-//		try {
-//			
-//			TourPackage tourPackage = tourPackageFacade.addNewTourPackage(tourCode, vehicleNumberPlate, tourDate, departFrom, destination);
-//			resetAttributes();
-//			WebUtils.fireInfoMessage(Constants.TOUR_PACKAGE_ADDED_SUCCESSFULLY);
-//			
-//		} catch (TBSException e) {
-//
-//			WebUtils.fireErrorMessage(e.getMessageKey());
-//		}
+		try {
+			if(tourPackages.size()==0 && travellers.size()==0)
+			{
+				WebUtils.fireInfoMessage(Constants.TOUR_SALES_NO_DATA_FOUND);
+			}
+			else if(selectedTourPackageID==null && selectedTravellerID==null){
+				WebUtils.fireInfoMessage(Constants.TOUR_SALES_PLEASE_SELECT_DATA);
+			}
+			else{
+				tourSalesFacade.addTourSales(selectedTourPackageID, selectedTravellerID);
+				WebUtils.fireInfoMessage(Constants.TOUR_SALES_ADDED_SUCCESSFULLY);
+			}
+			
+			
+			
+		} catch (TBSException e) {
+
+			WebUtils.fireErrorMessage(e.getMessageKey());
+		}
 	}
 	
-	public void resetAttributes(){
-		
-	}
 }

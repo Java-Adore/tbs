@@ -33,6 +33,63 @@ public class TourPackageDAOImpl extends AbstractDAO<TourPackage> implements Tour
 		}
 	}
 	
+	
+
+	@Override
+	public List<TourPackage> getAllTourPackages() throws TBSException{
+		
+		EntityTransaction transaction = getEntityManager().getTransaction();
+		List<TourPackage> result = null;
+		try {
+			if (transaction.isActive() == false) {
+				transaction.begin();
+			}
+			Query query = getEntityManager().createQuery("from TourPackage t");
+			
+			result = query.getResultList();
+			transaction.commit();
+			
+		}catch(Exception ex){
+			transaction.rollback();
+			ex.printStackTrace();
+			throw Constants.TBS_RUNTIME_EXCEPTION;
+		}
+		
+		return result;
+		
+	}
+
+	@Override
+	public TourPackage getTourPackageByID(Long tourPackageID)
+			throws TBSException {
+		EntityTransaction transaction = getEntityManager().getTransaction();
+		List<TourPackage> queryResult = new ArrayList();
+		TourPackage tour = null;
+		
+		try {
+			if (transaction.isActive() == false) {
+				transaction.begin();
+			}
+			Query query = getEntityManager().createQuery("from TourPackage t where t.ID=:tourPackageID");
+			query.setParameter("tourPackageID", tourPackageID);
+			
+			queryResult = query.getResultList();
+			if(queryResult.size()>0)
+			{
+				tour = queryResult.get(0);
+			}
+			
+			transaction.commit();
+			
+		}catch(Exception ex){
+			transaction.rollback();
+			ex.printStackTrace();
+			throw Constants.TBS_RUNTIME_EXCEPTION;
+		}
+		
+		return tour;
+	}
+
 	@Override
 	public TourPackage getTourPackage(TourPackage tourPackage) throws TBSException{
 		EntityTransaction transaction = getEntityManager().getTransaction();
@@ -61,30 +118,6 @@ public class TourPackageDAOImpl extends AbstractDAO<TourPackage> implements Tour
 		}
 		
 		return tour;
-	}
-
-	@Override
-	public List<TourPackage> getAllTourPackages() throws TBSException{
-		
-		EntityTransaction transaction = getEntityManager().getTransaction();
-		List<TourPackage> result = new ArrayList();
-		try {
-			if (transaction.isActive() == false) {
-				transaction.begin();
-			}
-			Query query = getEntityManager().createQuery("from TourPackage t");
-			
-			result = query.getResultList();
-			transaction.commit();
-			
-		}catch(Exception ex){
-			transaction.rollback();
-			ex.printStackTrace();
-			throw Constants.TBS_RUNTIME_EXCEPTION;
-		}
-		
-		return result;
-		
 	}
 	
 	

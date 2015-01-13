@@ -19,6 +19,7 @@ public class TourPackageServiceImpl implements TourPackageService {
 	
 	@Override
 	public TourPackage addNewTourPackage(TourPackage tourPackage) throws TBSException{
+		
 		if(tourPackageDAO.getTourPackage(tourPackage)==null)
 			return tourPackageDAO.addTourPackage(tourPackage);
 		else

@@ -19,19 +19,19 @@
 
 					<h:outputLabel value="#{loc.TOUR_SALES_LBL_SELECT_TOUR_PACKAGE}" />
 					<h:selectOneMenu
-						value="#{tourSalesDetailsBean.selectedTourPackage}">
+						value="#{tourSalesDetailsBean.selectedTourPackageID}">
 						<f:selectItem itemLabel="-- Select Tour Package --" itemValue="#{null}"/>
 						<f:selectItems value="#{tourSalesDetailsBean.tourPackages}"
 							var="tourPackage" itemLabel="#{tourPackage.tourCode}"
-							itemValue="#{tourPackage}" />
+							itemValue="#{tourPackage.ID}" />
 					</h:selectOneMenu>
 
 					<h:outputLabel value="#{loc.TOUR_SALES_LBL_SELECT_TRAVELLER}" />
-					<h:selectOneMenu value="#{tourSalesDetailsBean.selectedTraveller}">
+					<h:selectOneMenu value="#{tourSalesDetailsBean.selectedTravellerID}">
 						<f:selectItem itemLabel="-- Select Traveller --" itemValue="#{null}"/>
 						<f:selectItems value="#{tourSalesDetailsBean.travellers}"
 							var="traveller" itemLabel="#{traveller.emailAddress}"
-							itemValue="#{traveller}" />
+							itemValue="#{traveller.ID}" />
 					</h:selectOneMenu>
 
 					<f:facet name="footer">

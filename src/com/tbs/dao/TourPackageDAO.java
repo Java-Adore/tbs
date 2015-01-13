@@ -14,5 +14,7 @@ public interface TourPackageDAO {
 	
 	public List<TourPackage> getAllTourPackages() throws TBSException;
 	
+	public TourPackage getTourPackageByID(Long tourPackageID) throws TBSException;
+
 	public TourPackage getTourPackage(TourPackage tourPackage) throws TBSException;
 }

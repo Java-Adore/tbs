@@ -18,6 +18,10 @@ import javax.faces.convert.ConverterException;
 
 
 
+
+
+
+
 import com.general.utils.NoLoggedUserException;
 
 
@@ -77,4 +81,7 @@ public class Constants implements Serializable {
 	public static final String DEFAULT_IMAGE_NAME = "default_image.png";
 	public static final String DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY = "DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY";
 	public static final String INTERNATIONAL_TRAVELLER_ADDED_SUCCESSFULLY = "INTERNATIONAL_TRAVELLER_ADDED_SUCCESSFULLY";
+	public static final String TOUR_SALES_NO_DATA_FOUND = "TOUR_SALES_NO_DATA_FOUND";
+	public static final String TOUR_SALES_PLEASE_SELECT_DATA = "TOUR_SALES_PLEASE_SELECT_DATA";
+	public static final String TOUR_SALES_ADDED_SUCCESSFULLY = "TOUR_SALES_ADDED_SUCCESSFULLY";
 }

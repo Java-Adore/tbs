@@ -31,6 +31,15 @@ public class TourSales implements Marker, Serializable {
 	@JoinColumn(name="traveller_id", referencedColumnName="ID")
 	private Traveller traveller;
 	
+	
+	public TourSales(){
+		
+	}
+	public TourSales(TourPackage tourPackage, Traveller traveller) {
+		this.setTourPackage(tourPackage);
+		this.setTraveller(traveller);
+	}
+
 	@Override
 	public Long getID() {
 		return ID;
