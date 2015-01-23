@@ -1,6 +1,7 @@
 package com.tbs.view.validator;
 
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import javax.faces.application.FacesMessage;
@@ -26,19 +27,11 @@ public class EmailValidator implements Validator {
         if(value == null) {
             return;
         }
-         
+        ResourceBundle bundle = ResourceBundle.getBundle("com.tbs.internationalization.locale");
+        String message = bundle.getString("EMAIL_VALIDATION_ERROR");
         if(!pattern.matcher(value.toString()).matches()) {
-            throw new ValidatorException(new FacesMessage());
+            throw new ValidatorException(new FacesMessage(message));
         }
-    }
- 
-    public Map<String, Object> getMetadata() {
-        return null;
-    }
- 
-    public String getValidatorId() {
-        return "custom.emailValidator";
-    }
-     
+    }    
 
 }

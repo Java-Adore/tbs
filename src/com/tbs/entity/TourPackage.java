@@ -59,7 +59,7 @@ public class TourPackage implements Serializable, Marker {
         inverseJoinColumns=
             @JoinColumn(name="traveller_id", referencedColumnName="ID")
         )
-    private List<Traveller> travellers;	
+    private List<Traveler> travellers;	
 	
 	@Override
 	public Long getID() {
@@ -114,11 +114,11 @@ public class TourPackage implements Serializable, Marker {
 	}
 	
 
-	public List<Traveller> getTravellers() {
+	public List<Traveler> getTravellers() {
 		return travellers;
 	}
 
-	public void setTravellers(List<Traveller> travellers) {
+	public void setTravellers(List<Traveler> travellers) {
 		this.travellers = travellers;
 	}
 

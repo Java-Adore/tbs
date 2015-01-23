@@ -36,10 +36,14 @@
             					<h:inputText value="#{travellerBean.residentialAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_RESIDENTIAL_ADDRESS_IS_REQUIRED}"/>
         						
             					<h:outputLabel value="#{loc.TRAVELLER_LBL_CONTACT_TELEPHONE}" />
-            					<h:inputText value="#{travellerBean.contactTelephone}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_CONTACT_TELEPHONE_IS_REQUIRED}"/>
+            					<h:inputText value="#{travellerBean.contactTelephone}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_CONTACT_TELEPHONE_IS_REQUIRED}">
+            						<f:validateRegex pattern="\\d"/>
+            					</h:inputText>
         						
             					<h:outputLabel value="#{loc.TRAVELLER_LBL_EMAIL_ADDRESS}" />
-            					<h:inputText value="#{travellerBean.emailAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_EMAIL_ADDRESS_IS_REQUIRED}"/>
+            					<h:inputText value="#{travellerBean.emailAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_EMAIL_ADDRESS_IS_REQUIRED}">
+            						<f:validator validatorId="emailValidator"/>
+            					</h:inputText>
         						
         						<f:facet name="footer">
         						<h:panelGrid id="domesticTraveller" columns="2" rendered="#{travellerBean.domesticFlag}">

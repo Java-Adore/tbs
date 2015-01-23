@@ -8,12 +8,12 @@ import javax.ejb.Stateless;
 
 import com.tbs.dao.TourPackageDAO;
 import com.tbs.dao.TourSalesDAO;
-import com.tbs.dao.TravellerDAO;
+import com.tbs.dao.TravelerDAO;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.TourSales;
-import com.tbs.entity.Traveller;
+import com.tbs.entity.Traveler;
 import com.tbs.general.*;
 
 @Stateless
@@ -25,11 +25,30 @@ public class GetInfoServiceImpl implements GetInfoService {
 	@EJB
 	TourSalesDAO tourSalesDAO;
 
+	@EJB
+	TourPackageDAO tourPackageDAO;
+	
+	@EJB
+	TravelerDAO travelerDAO;
 
 	@Override
 	public List<TourSales> getAllTourSales() throws TBSException {
 		
 		return tourSalesDAO.getAllTourSales();
+	}
+
+
+	@Override
+	public List<TourPackage> getAllTourPackages() throws TBSException {
+		// TODO Auto-generated method stub
+		return tourPackageDAO.getAllTourPackages();
+	}
+
+
+	@Override
+	public List<Traveler> getAllTravelers() throws TBSException {
+		// TODO Auto-generated method stub
+		return travelerDAO.getAllTravellers();
 	}
 
 

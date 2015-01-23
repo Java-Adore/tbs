@@ -7,37 +7,37 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import com.tbs.dao.TourPackageDAO;
-import com.tbs.dao.TravellerDAO;
+import com.tbs.dao.TravelerDAO;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.TourPackage;
-import com.tbs.entity.Traveller;
+import com.tbs.entity.Traveler;
 import com.tbs.general.*;
 
 @Stateless
-public class TravellerServiceImpl implements TravellerService {
+public class TravelerServiceImpl implements TravelerService {
 
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	TravellerDAO travellerDAO;
+	TravelerDAO travellerDAO;
 
 	@Override
-	public Traveller addDomesticTraveller(DomesticTraveller domesticTraveller)
+	public Traveler addDomesticTraveller(DomesticTraveller domesticTraveller)
 			throws TBSException {
 		
 		return travellerDAO.addDomesticTraveller(domesticTraveller);
 	}
 
 	@Override
-	public Traveller addInternationalTraveller(
+	public Traveler addInternationalTraveller(
 			InternationalTraveller internationalTraveller) throws TBSException {
 		
 		return travellerDAO.addInternationalTraveller(internationalTraveller);
 	}
 
 	@Override
-	public List<Traveller> getAllTravellers() throws TBSException {
+	public List<Traveler> getAllTravellers() throws TBSException {
 		
 		return travellerDAO.getAllTravellers();
 	}

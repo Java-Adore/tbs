@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import org.primefaces.context.RequestContext;
 
-import com.tbs.entity.Member;
+
 import com.tbs.general.Constants;
 
 public class WebUtils {
@@ -131,9 +131,7 @@ public class WebUtils {
 
 	}
 
-	public static Member getCurrentUser() {
-		return (Member)extractFromSession(Constants.CURRENT_LOGGED_USER);
-	}
+	
 
 	public static void invokeJavaScriptFunction(String functionWithParameter) {
 
@@ -199,12 +197,4 @@ public class WebUtils {
 	}
 	
 	
-	
-	public static void validateCurrentUser() 
-	{
-		if(getCurrentUser()==null)
-		{
-			redirectTo(Constants.LOGIN_PAGE); 
-		}
-	}
 }

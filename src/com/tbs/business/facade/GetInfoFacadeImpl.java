@@ -10,6 +10,7 @@ import com.tbs.business.service.GetInfoService;
 import com.tbs.business.service.TourPackageService;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.TourSales;
+import com.tbs.entity.Traveler;
 import com.tbs.general.TBSException;
 
 @Stateless
@@ -22,6 +23,18 @@ public class GetInfoFacadeImpl implements GetInfoFacade {
 	public List<TourSales> getAllTourSales() throws TBSException {
 		// TODO Auto-generated method stub
 		return getInfoService.getAllTourSales();
+	}
+
+	@Override
+	public List<TourPackage> getAllTourPackages() throws TBSException {
+		// TODO Auto-generated method stub
+		return getInfoService.getAllTourPackages();
+	}
+
+	@Override
+	public List<Traveler> getAllTravelers() throws TBSException {
+		// TODO Auto-generated method stub
+		return getInfoService.getAllTravelers();
 	}
 	
 

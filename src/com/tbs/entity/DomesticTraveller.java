@@ -10,7 +10,7 @@ import com.tbs.general.Marker;
 
 @Entity
 @Table(name="domestic_travellers")
-public class DomesticTraveller extends Traveller implements Serializable,Marker{
+public class DomesticTraveller extends Traveler implements Serializable,Marker{
 	
 	private static final long serialVersionUID = 1L;
 	

@@ -15,30 +15,40 @@
 				style="margin-bottom:20px;align:right;">
 				<h:messages style="color:#0040FF;" />
 				
-				<p:dataTable var="tourPackage" value="#{getInfoBean.tourPackages}" widgetVar="tourPackagesTable" filteredValue="#{getInfoBean.filteredPackages}"
-                 	emptyMessage="No tour packages found with given criteria" rows="4" paginator="true">
+				<p:dataTable var="tourPackage" value="#{getInfoBean.tourPackages}" widgetVar="tourPackagesTable"
+                 	emptyMessage="No tour packages found with given criteria" rows="4" paginator="true"  paginatorPosition="top">
  
         			<f:facet name="header">
             			<p:outputPanel>
-                			<h:outputText value="Search all fields in package table:" />
+                			<h:outputText value="Search all fields in package:" />
                 			<p:inputText id="globalFilter" onkeyup="PF('tourPackagesTable').filter()" style="width:150px" placeholder="Enter keyword"/>
             			</p:outputPanel>
         			</f:facet>
-        			<p:column filterBy="#{tourPackage.tourCode}" headerText="Tour Code" footerText="Tour Code" filterMatchMode="contains">
+        			<p:column filterBy="#{tourPackage.tourCode}" headerText="Tour Code" filterMatchMode="contains">
             			<h:outputText value="#{tourPackage.tourCode}" />
         			</p:column>
-        			<p:column filterBy="#{tourPackage.vehicleNumberPlate}" headerText="Vehicle Number Plate" footerText="Vehicle Number Plate" filterMatchMode="contains">
+        			<p:column filterBy="#{tourPackage.vehicleNumberPlate}" headerText="Vehicle Number Plate" filterMatchMode="contains">
             			<h:outputText value="#{tourPackage.vehicleNumberPlate}" />
         			</p:column>
-        			<p:column filterBy="#{tourPackage.tourDate}" headerText="Tour Date" footerText="Tour Date" filterMatchMode="contains">
+        			<p:column filterBy="#{tourPackage.tourDate}" headerText="Tour Date" filterMatchMode="contains">
             			<h:outputText value="#{tourPackage.tourDate}" />
         			</p:column>
-        			<p:column filterBy="#{tourPackage.departFrom}" headerText="Depart from" footerText="Depart from" filterMatchMode="contains">
+        			<p:column filterBy="#{tourPackage.departFrom}" headerText="Depart from" filterMatchMode="contains">
             			<h:outputText value="#{tourPackage.departFrom}" />
         			</p:column>
-        			<p:column filterBy="#{tourPackage.detination}" headerText="Destination" footerText="Destination" filterMatchMode="contains">
+        			<p:column filterBy="#{tourPackage.detination}" headerText="Destination" filterMatchMode="contains">
             			<h:outputText value="#{tourPackage.detination}" />
         			</p:column>
+        			<p:column  headerText="Travellers in package (ID)">
+            			           			
+            			<h:selectOneMenu
+						value="#{tourSalesDetailsBean.selectedTourPackageID}">
+						<f:selectItems value="#{tourPackage.travellers}"
+							var="traveler" itemLabel="#{traveler.ID}"
+							itemValue="#{traveler.ID}" />
+					</h:selectOneMenu>
+        			</p:column>
+        			
         		</p:dataTable>
 				
 				
@@ -47,28 +57,28 @@
 				
 				
 				
-				<p:dataTable var="traveller" value="#{getInfoBean.travellers}" widgetVar="travellersTable" filteredValue="#{getInfoBean.filteredTravellers}"
-                 	emptyMessage="No travellers found with given criteria" rows="4" paginator="true">
+				<p:dataTable var="traveller" value="#{getInfoBean.travellers}" widgetVar="travellersTable"
+                 	emptyMessage="No travellers found with given criteria" rows="4" paginator="true"  paginatorPosition="top">
  
         			<f:facet name="header">
             			<p:outputPanel>
-                			<h:outputText value="Search all fields in Travellers table:" />
+                			<h:outputText value="Search all fields in Travellers:" />
                 			<p:inputText id="globalFilter" onkeyup="PF('travellersTable').filter()" style="width:150px" placeholder="Enter keyword"/>
             			</p:outputPanel>
         			</f:facet>
-        			<p:column filterBy="#{traveller.firstName}" headerText="First Name" footerText="First Name" filterMatchMode="contains">
+        			<p:column filterBy="#{traveller.firstName}" headerText="First Name" filterMatchMode="contains">
             			<h:outputText value="#{traveller.firstName}" />
         			</p:column>
-        			<p:column filterBy="#{traveller.lastName}" headerText="Last Name" footerText="Last Name" filterMatchMode="contains">
+        			<p:column filterBy="#{traveller.lastName}" headerText="Last Name" filterMatchMode="contains">
             			<h:outputText value="#{traveller.lastName}" />
         			</p:column>
-        			<p:column filterBy="#{traveller.residentialAddress}" headerText="Residential Address" footerText="Residential Address" filterMatchMode="contains">
+        			<p:column filterBy="#{traveller.residentialAddress}" headerText="Residential Address" filterMatchMode="contains">
             			<h:outputText value="#{traveller.residentialAddress}" />
         			</p:column>
-        			<p:column filterBy="#{traveller.contactTelephone}" headerText="Contact Telephone" footerText="Contact Telephone" filterMatchMode="contains">
+        			<p:column filterBy="#{traveller.contactTelephone}" headerText="Contact Telephone" filterMatchMode="contains">
             			<h:outputText value="#{traveller.contactTelephone}" />
         			</p:column>
-        			<p:column filterBy="#{traveller.emailAddress}" headerText="Email Address" footerText="Email Address" filterMatchMode="contains">
+        			<p:column filterBy="#{traveller.emailAddress}" headerText="Email Address" filterMatchMode="contains">
             			<h:outputText value="#{traveller.emailAddress}" />
         			</p:column>
         		</p:dataTable>

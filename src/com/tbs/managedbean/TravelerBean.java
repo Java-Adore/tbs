@@ -12,7 +12,7 @@ import javax.persistence.Column;
 
 import com.general.utils.WebUtils;
 import com.tbs.business.facade.TourPackageFacade;
-import com.tbs.business.facade.TravellerFacade;
+import com.tbs.business.facade.TravelerFacade;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.TourPackage;
@@ -21,7 +21,7 @@ import com.tbs.general.TBSException;
 
 @ManagedBean
 @ViewScoped
-public class TravellerBean implements Serializable {
+public class TravelerBean implements Serializable {
 	
 	/**
 	 * 
@@ -32,7 +32,7 @@ public class TravellerBean implements Serializable {
 	TourPackageFacade tourPackageFacade;
 	
 	@EJB
-	TravellerFacade travellerFacade;
+	TravelerFacade travellerFacade;
 
 	private String firstName;
 
@@ -199,9 +199,13 @@ public class TravellerBean implements Serializable {
 			InternationalTraveller internationalTraveller=null;
 			
 			if(travellerType.equals("domestic")){
-				
-				domesticTraveller = travellerFacade.addDomesticTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
-				WebUtils.fireInfoMessage(Constants.DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY);
+				if(contactTelephone.length()<=10){
+					domesticTraveller = travellerFacade.addDomesticTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
+					WebUtils.fireInfoMessage(Constants.DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY);
+				}
+				else
+					WebUtils.fireInfoMessage(Constants.DOMESTIC_TELEPHOE_LENGTH_MUST_BE_LESS_THAN_10);
+			
 			}
 			else if(travellerType.equals("international")){
 				

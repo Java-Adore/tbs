@@ -8,12 +8,12 @@ import javax.ejb.Stateless;
 
 import com.tbs.dao.TourPackageDAO;
 import com.tbs.dao.TourSalesDAO;
-import com.tbs.dao.TravellerDAO;
+import com.tbs.dao.TravelerDAO;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.TourSales;
-import com.tbs.entity.Traveller;
+import com.tbs.entity.Traveler;
 import com.tbs.general.*;
 
 @Stateless
@@ -22,7 +22,7 @@ public class TourSalesServiceImpl implements TourSalesService {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	TravellerDAO travellerDAO;
+	TravelerDAO travellerDAO;
 
 	@EJB
 	TourPackageDAO tourPackageDAO;
@@ -37,7 +37,7 @@ public class TourSalesServiceImpl implements TourSalesService {
 	}
 
 	@Override
-	public List<Traveller> getAllTravellers() throws TBSException {
+	public List<Traveler> getAllTravellers() throws TBSException {
 		
 		return travellerDAO.getAllTravellers();
 	}

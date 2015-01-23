@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import com.tbs.business.service.TravellerService;
+import com.tbs.business.service.TravelerService;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.TourPackage;
@@ -13,10 +13,10 @@ import com.tbs.general.Constants;
 import com.tbs.general.TBSException;
 
 @Stateless
-public class TravellerFacadeImpl implements TravellerFacade {
+public class TravelerFacadeImpl implements TravelerFacade {
 
 	@EJB
-	TravellerService travellerSrvice;
+	TravelerService travellerSrvice;
 
 	@Override
 	public DomesticTraveller addDomesticTraveller(String firstName,

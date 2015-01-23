@@ -10,7 +10,7 @@ import com.tbs.general.Marker;
 
 @Entity
 @Table(name="international_travellers")
-public class InternationalTraveller extends Traveller implements Serializable,Marker{
+public class InternationalTraveller extends Traveler implements Serializable,Marker{
 	
 	private static final long serialVersionUID = 1L;
 

@@ -11,45 +11,45 @@ import javax.persistence.Query;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
 import com.tbs.entity.TourPackage;
-import com.tbs.entity.Traveller;
+import com.tbs.entity.Traveler;
 import com.tbs.general.Constants;
 import com.tbs.general.TBSException;
 
 @Singleton
-public class TravellerDAOImpl extends AbstractDAO<Traveller> implements TravellerDAO{
+public class TravelerDAOImpl extends AbstractDAO<Traveler> implements TravelerDAO{
 
 	EntityManager entityManager = getEntityManagerFactory()
 			.createEntityManager();
 
-	public TravellerDAOImpl() {
+	public TravelerDAOImpl() {
 		super.setEntityManager(entityManager);
 	}
 
 	@Override
-	public Traveller addTraveller(Traveller traveller) {
+	public Traveler addTraveller(Traveler traveller) {
 
 		return super.persist(traveller);
 	}
 
 	@Override
-	public Traveller addDomesticTraveller(DomesticTraveller domesticTraveller) {
+	public Traveler addDomesticTraveller(DomesticTraveller domesticTraveller) {
 		return super.persist(domesticTraveller);
 	}
 
 	@Override
-	public Traveller addInternationalTraveller(InternationalTraveller internationalTraveller) {
+	public Traveler addInternationalTraveller(InternationalTraveller internationalTraveller) {
 		return super.persist(internationalTraveller);
 	}
 
 	@Override
-	public List<Traveller> getAllTravellers() throws TBSException {
+	public List<Traveler> getAllTravellers() throws TBSException {
 		EntityTransaction transaction = getEntityManager().getTransaction();
-		List<Traveller> result = null;
+		List<Traveler> result = null;
 		try {
 			if (transaction.isActive() == false) {
 				transaction.begin();
 			}
-			Query query = getEntityManager().createQuery("from Traveller t");
+			Query query = getEntityManager().createQuery("from Traveler t");
 			
 			result = query.getResultList();
 			transaction.commit();
@@ -64,17 +64,17 @@ public class TravellerDAOImpl extends AbstractDAO<Traveller> implements Travelle
 	}
 
 	@Override
-	public Traveller getTravellerByID(Long travellerID) throws TBSException {
+	public Traveler getTravellerByID(Long travellerID) throws TBSException {
 		
 		EntityTransaction transaction = getEntityManager().getTransaction();
-		List<Traveller> queryResult = new ArrayList();
-		Traveller traveller = null;
+		List<Traveler> queryResult = new ArrayList();
+		Traveler traveller = null;
 		
 		try {
 			if (transaction.isActive() == false) {
 				transaction.begin();
 			}
-			Query query = getEntityManager().createQuery("from Traveller t where t.ID=:travellerID");
+			Query query = getEntityManager().createQuery("from Traveler t where t.ID=:travellerID");
 			query.setParameter("travellerID", travellerID);
 			
 			queryResult = query.getResultList();
@@ -94,24 +94,4 @@ public class TravellerDAOImpl extends AbstractDAO<Traveller> implements Travelle
 		return traveller;
 	}
 	
-	/*
-	 public Member getMemeberByEmail(String email) {
-		EntityTransaction transaction = getEntityManager().getTransaction();
-		List<Member> result = new ArrayList();
-		try {
-			if (transaction.isActive() == false) {
-				transaction.begin();
-			}
-			Query query = getEntityManager().createQuery(
-					"from Member where lower(email) like :email");
-			query.setParameter("email", email.toLowerCase());
-			result = query.getResultList();
-			Util.isNotEmpty(result);
-			return Util.isNotEmpty(result) ? result.get(0) : null;
-		} finally {
-			transaction.commit();
-		}
-
-	}
-	 * */
 }
