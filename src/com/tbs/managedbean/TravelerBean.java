@@ -1,21 +1,16 @@
 package com.tbs.managedbean;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Hashtable;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.persistence.Column;
 
 import com.general.utils.WebUtils;
-import com.tbs.business.facade.TourPackageFacade;
-import com.tbs.business.facade.TravelerFacade;
+import com.tbs.business.manage.Manageable;
 import com.tbs.entity.DomesticTraveller;
 import com.tbs.entity.InternationalTraveller;
-import com.tbs.entity.TourPackage;
 import com.tbs.general.Constants;
 import com.tbs.general.TBSException;
 
@@ -29,10 +24,7 @@ public class TravelerBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	TourPackageFacade tourPackageFacade;
-	
-	@EJB
-	TravelerFacade travellerFacade;
+	Manageable manage;
 
 	private String firstName;
 
@@ -61,20 +53,12 @@ public class TravelerBean implements Serializable {
 	private boolean domesticFlag;
 	private boolean internationalFlag;
 	
-	private String travellerType="domestic";
+	private String travelerType="domestic";
 	
 	@PostConstruct
 	public void init(){
 		domesticFlag=true;
 		internationalFlag=false;
-	}
-
-	public TourPackageFacade getTourPackageFacade() {
-		return tourPackageFacade;
-	}
-
-	public void setTourPackageFacade(TourPackageFacade tourPackageFacade) {
-		this.tourPackageFacade = tourPackageFacade;
 	}
 
 	public String getFirstName() {
@@ -166,20 +150,20 @@ public class TravelerBean implements Serializable {
 	}
 	
 
-	public String getTravellerType() {
-		return travellerType;
+	public String getTravelerType() {
+		return travelerType;
 	}
 
-	public void setTravellerType(String travellerType) {
-		if(travellerType.equals("domestic")){
+	public void setTravelerType(String travelerType) {
+		if(travelerType.equals("domestic")){
 			this.domesticFlag=true;
 			this.internationalFlag=false;
 		}
-		else if(travellerType.equals("international")){
+		else if(travelerType.equals("international")){
 			this.domesticFlag=false;
 			this.internationalFlag=true;
 		}
-		this.travellerType = travellerType;
+		this.travelerType = travelerType;
 	}
 	
 
@@ -198,18 +182,18 @@ public class TravelerBean implements Serializable {
 			DomesticTraveller domesticTraveller=null;
 			InternationalTraveller internationalTraveller=null;
 			
-			if(travellerType.equals("domestic")){
+			if(travelerType.equals("domestic")){
 				if(contactTelephone.length()<=10){
-					domesticTraveller = travellerFacade.addDomesticTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
+					domesticTraveller = manage.addDomesticTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
 					WebUtils.fireInfoMessage(Constants.DOMESTIC_TRAVELLER_ADDED_SUCCESSFULLY);
 				}
 				else
 					WebUtils.fireInfoMessage(Constants.DOMESTIC_TELEPHOE_LENGTH_MUST_BE_LESS_THAN_10);
 			
 			}
-			else if(travellerType.equals("international")){
+			else if(travelerType.equals("international")){
 				
-				internationalTraveller = travellerFacade.addInternationalTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, passportNumber, passportCountry, visaNumber);
+				internationalTraveller = manage.addInternationalTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, passportNumber, passportCountry, visaNumber);
 				WebUtils.fireInfoMessage(Constants.INTERNATIONAL_TRAVELLER_ADDED_SUCCESSFULLY);
 			}
 				

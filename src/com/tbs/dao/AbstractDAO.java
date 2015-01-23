@@ -1,7 +1,6 @@
 package com.tbs.dao;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +15,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.tbs.entity.TourPackage;
 import com.tbs.general.Marker;
 
 @Singleton

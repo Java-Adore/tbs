@@ -1,7 +1,6 @@
 package com.tbs.managedbean;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -9,8 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import com.general.utils.WebUtils;
-import com.tbs.business.facade.TourSalesFacade;
-import com.tbs.entity.DomesticTraveller;
+import com.tbs.business.manage.Manageable;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.Traveler;
 import com.tbs.general.Constants;
@@ -24,7 +22,7 @@ public class TourSalesDetailsBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	TourSalesFacade tourSalesFacade;
+	Manageable manage;
 	
 	private List<TourPackage> tourPackages;
 	
@@ -38,7 +36,7 @@ public class TourSalesDetailsBean implements Serializable {
 
 		try {
 			
-			tourPackages = tourSalesFacade.getAllTourPackages();
+			tourPackages = manage.getAllTourPackages();
 			
 		} catch (TBSException e) {
 
@@ -53,7 +51,7 @@ public class TourSalesDetailsBean implements Serializable {
 		
 		try {
 			
-			travellers = tourSalesFacade.getAllTravellers();
+			travellers = manage.getAllTravellers();
 			
 		} catch (TBSException e) {
 
@@ -96,7 +94,7 @@ public class TourSalesDetailsBean implements Serializable {
 				WebUtils.fireInfoMessage(Constants.TOUR_SALES_PLEASE_SELECT_DATA);
 			}
 			else{
-				tourSalesFacade.addTourSales(selectedTourPackageID, selectedTravellerID);
+				manage.addTourSales(selectedTourPackageID, selectedTravellerID);
 				WebUtils.fireInfoMessage(Constants.TOUR_SALES_ADDED_SUCCESSFULLY);
 			}
 			

@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import com.general.utils.WebUtils;
-import com.tbs.business.facade.TourPackageFacade;
+import com.tbs.business.manage.Manageable;
 import com.tbs.entity.TourPackage;
 import com.tbs.general.Constants;
 import com.tbs.general.TBSException;
@@ -22,9 +22,9 @@ public class TourPackageBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@EJB
-	TourPackageFacade tourPackageFacade;
+	Manageable manage;
 	
 	private String tourCode;
 	
@@ -90,7 +90,7 @@ public class TourPackageBean implements Serializable {
 	public void addNewPackage(){
 		try {
 			
-			TourPackage tourPackage = tourPackageFacade.addNewTourPackage(tourCode, vehicleNumberPlate, tourDate, departFrom, destination);
+			TourPackage tourPackage = manage.addNewTourPackage(tourCode, vehicleNumberPlate, tourDate, departFrom, destination);
 			resetAttributes();
 			WebUtils.fireInfoMessage(Constants.TOUR_PACKAGE_ADDED_SUCCESSFULLY);
 			

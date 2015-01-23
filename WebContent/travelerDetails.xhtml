@@ -14,68 +14,68 @@
 					<h:form id="form">
 						<p:fieldset id="fieldset" legend="#{loc.TRAVELLER_DETAILS_ADD_TRAVELLER_DETAILS}" style="margin-bottom:20px;align:right;">
 							<h:messages style="color:#0040FF;"/>
-							<h:panelGrid id="traveller" columns="2">
+							<h:panelGrid id="traveler" columns="2">
 								
 								<f:facet name="header">
         							<br />
-        							<h:selectOneRadio value="#{travellerBean.travellerType}">
+        							<h:selectOneRadio value="#{travelerBean.travelerType}">
         								<f:selectItem itemLabel="Domestic" itemValue="domestic"/>
         								<f:selectItem itemLabel="International" itemValue="international"/>
-        								<f:ajax execute="@this" render="@all :domesticTraveller :internationalTraveller" />
+        								<f:ajax execute="@this" render="@all :domesticTraveler :internationalTraveler" />
    									</h:selectOneRadio>
    									<br />
    								</f:facet>
 								
 								<h:outputLabel value="#{loc.TRAVELLER_LBL_FIRST_NAME}" />
-								<h:inputText value="#{travellerBean.firstName}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_FIRST_NAME_IS_REQUIRED}"/>
+								<h:inputText value="#{travelerBean.firstName}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_FIRST_NAME_IS_REQUIRED}"/>
 							
             					<h:outputLabel value="#{loc.TRAVELLER_LBL_LAST_NAME}" />
-            					<h:inputText value="#{travellerBean.lastName}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_LAST_NAME_IS_REQUIRED}"/>
+            					<h:inputText value="#{travelerBean.lastName}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_LAST_NAME_IS_REQUIRED}"/>
         						
             					<h:outputLabel value="#{loc.TRAVELLER_LBL_RESIDENTIAL_ADDRESS}" />
-            					<h:inputText value="#{travellerBean.residentialAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_RESIDENTIAL_ADDRESS_IS_REQUIRED}"/>
+            					<h:inputText value="#{travelerBean.residentialAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_RESIDENTIAL_ADDRESS_IS_REQUIRED}"/>
         						
             					<h:outputLabel value="#{loc.TRAVELLER_LBL_CONTACT_TELEPHONE}" />
-            					<h:inputText value="#{travellerBean.contactTelephone}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_CONTACT_TELEPHONE_IS_REQUIRED}">
-            						<f:validateRegex pattern="\\d"/>
+            					<h:inputText value="#{travelerBean.contactTelephone}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_CONTACT_TELEPHONE_IS_REQUIRED}">
+            						<f:validateRegex pattern="^[0-9]+$"/>
             					</h:inputText>
         						
             					<h:outputLabel value="#{loc.TRAVELLER_LBL_EMAIL_ADDRESS}" />
-            					<h:inputText value="#{travellerBean.emailAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_EMAIL_ADDRESS_IS_REQUIRED}">
+            					<h:inputText value="#{travelerBean.emailAddress}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_EMAIL_ADDRESS_IS_REQUIRED}">
             						<f:validator validatorId="emailValidator"/>
             					</h:inputText>
         						
         						<f:facet name="footer">
-        						<h:panelGrid id="domesticTraveller" columns="2" rendered="#{travellerBean.domesticFlag}">
+        						<h:panelGrid id="domesticTraveler" columns="2" rendered="#{travelerBean.domesticFlag}">
         							
             						<h:outputLabel value="#{loc.TRAVELLER_LBL_PHOTO_IDENTIFICATION_TYPE}" />
-            						<h:inputText value="#{travellerBean.photoIdentificationType}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PHOTO_IDENTIFICATION_TYPE_IS_REQUIRED}"/>
+            						<h:inputText value="#{travelerBean.photoIdentificationType}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PHOTO_IDENTIFICATION_TYPE_IS_REQUIRED}"/>
         							
             						<h:outputLabel value="#{loc.TRAVELLER_LBL_PHOTO_IDENTIFICATION_ISSUER}" />
-            						<h:inputText value="#{travellerBean.photoIdentificationIssuer}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PHOTO_IDENTIFICATION_ISSUER_IS_REQUIRED}"/>
+            						<h:inputText value="#{travelerBean.photoIdentificationIssuer}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PHOTO_IDENTIFICATION_ISSUER_IS_REQUIRED}"/>
         							
             						<h:outputLabel value="#{loc.TRAVELLER_LBL_PHOTO_IDENTIFICATION_NUMBER}" />
-            						<h:inputText value="#{travellerBean.photoIdentificationNumber}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PHOTO_IDENTIFICATION_NUMBER_IS_REQUIRED}"/>
+            						<h:inputText value="#{travelerBean.photoIdentificationNumber}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PHOTO_IDENTIFICATION_NUMBER_IS_REQUIRED}"/>
         							
         						</h:panelGrid>
         						</f:facet>
         						<f:facet name="footer">
-        						<h:panelGrid id="internationalTraveller" columns="2" rendered="#{travellerBean.internationalFlag}">
+        						<h:panelGrid id="internationalTraveler" columns="2" rendered="#{travelerBean.internationalFlag}">
         							
             						<h:outputLabel value="#{loc.TRAVELLER_LBL_PASSPORT_NUMBER}" />
-            						<h:inputText value="#{travellerBean.passportNumber}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PASSPORT_NUMBER_IS_REQUIRED}"/>
+            						<h:inputText value="#{travelerBean.passportNumber}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PASSPORT_NUMBER_IS_REQUIRED}"/>
         							
             						<h:outputLabel value="#{loc.TRAVELLER_LBL_PASSPORT_COUNTRY}" />
-            						<h:inputText value="#{travellerBean.passportCountry}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PASSPORT_COUNTRY_IS_REQUIRED}"/>
+            						<h:inputText value="#{travelerBean.passportCountry}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_PASSPORT_COUNTRY_IS_REQUIRED}"/>
         							
             						<h:outputLabel value="#{loc.TRAVELLER_LBL_VISA_NUMBER}" />
-            						<h:inputText value="#{travellerBean.visaNumber}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_VISA_NUMBER_IS_REQUIRED}"/>
+            						<h:inputText value="#{travelerBean.visaNumber}" required="true" requiredMessage="#{loc.TRAVELLER_MSG_VISA_NUMBER_IS_REQUIRED}"/>
         							
         						</h:panelGrid>
         						</f:facet>
         						<f:facet name="footer">
         							<br />
-        							<h:commandButton id="submit" value="#{loc.GENERAL_SUBMIT_BUTTON}" ajax="true" update=":form" actionListener="#{travellerBean.addNewTraveller()}"/>
+        							<h:commandButton id="submit" value="#{loc.GENERAL_SUBMIT_BUTTON}" ajax="true" update=":form" actionListener="#{travelerBean.addNewTraveller()}"/>
         						</f:facet>
     						</h:panelGrid>
     					</p:fieldset>

@@ -1,8 +1,6 @@
 package com.tbs.managedbean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -11,13 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import com.general.utils.WebUtils;
-import com.tbs.business.facade.GetInfoFacade;
-import com.tbs.business.facade.TourPackageFacade;
-import com.tbs.entity.DomesticTraveller;
+import com.tbs.business.manage.Manageable;
 import com.tbs.entity.TourPackage;
-import com.tbs.entity.TourSales;
 import com.tbs.entity.Traveler;
-import com.tbs.general.Constants;
 import com.tbs.general.TBSException;
 
 @ManagedBean
@@ -27,9 +21,8 @@ public class GetInfoBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	
 	@EJB
-	GetInfoFacade getInfoFacade;
+	Manageable manage;
 	
 	
 	private List<TourPackage> tourPackages;
@@ -40,8 +33,8 @@ public class GetInfoBean implements Serializable {
 	public void init(){
 		
 		try{
-			tourPackages = getInfoFacade.getAllTourPackages();
-			travellers = getInfoFacade.getAllTravelers();
+			tourPackages = manage.getAllTourPackages();
+			travellers = manage.getAllTravelers();
 			
 		} catch (TBSException e) {
 
