@@ -65,42 +65,112 @@
 
 
 
-				<p:dataTable var="traveler" value="#{getInfoBean.travelers}"
+				<p:dataTable var="domesticTraveler" value="#{getInfoBean.domesticTravelers}"
 					widgetVar="travelersTable"
 					emptyMessage="No travelers found with given criteria" rows="4"
 					paginator="true" paginatorPosition="top">
 
 					<f:facet name="header">
 						<p:outputPanel>
-							<h:outputText value="Search all fields in Travellers:" style="color: black;"/>
+							<h:outputText value="Search all fields in Domestic Travellers:" style="color: black;"/>
 							<p:inputText id="globalFilter"
 								onkeyup="PF('travelersTable').filter()" style="width:150px"
 								placeholder="Enter keyword" />
 						</p:outputPanel>
 					</f:facet>
-					<p:column filterBy="#{traveler.ID}" headerText="Traveller ID"
+					<p:column filterBy="#{domesticTraveler.ID}" headerText="Traveller ID"
 						filterMatchMode="contains">
-						<h:outputText value="#{traveler.ID}" />
+						<h:outputText value="#{domesticTraveler.ID}" />
 					</p:column>
-					<p:column filterBy="#{traveler.firstName}" headerText="First Name"
+					<p:column filterBy="#{domesticTraveler.firstName}" headerText="First Name"
 						filterMatchMode="contains">
-						<h:outputText value="#{traveler.firstName}" />
+						<h:outputText value="#{domesticTraveler.firstName}" />
 					</p:column>
-					<p:column filterBy="#{traveler.lastName}" headerText="Last Name"
+					<p:column filterBy="#{domesticTraveler.lastName}" headerText="Last Name"
 						filterMatchMode="contains">
-						<h:outputText value="#{traveler.lastName}" />
+						<h:outputText value="#{domesticTraveler.lastName}" />
 					</p:column>
-					<p:column filterBy="#{traveler.residentialAddress}"
+					<p:column filterBy="#{domesticTraveler.residentialAddress}"
 						headerText="Residential Address" filterMatchMode="contains">
-						<h:outputText value="#{traveler.residentialAddress}" />
+						<h:outputText value="#{domesticTraveler.residentialAddress}" />
 					</p:column>
-					<p:column filterBy="#{traveler.contactTelephone}"
+					<p:column filterBy="#{domesticTraveler.contactTelephone}"
 						headerText="Contact Telephone" filterMatchMode="contains">
-						<h:outputText value="#{traveler.contactTelephone}" />
+						<h:outputText value="#{domesticTraveler.contactTelephone}" />
 					</p:column>
-					<p:column filterBy="#{traveler.emailAddress}"
+					<p:column filterBy="#{domesticTraveler.emailAddress}"
 						headerText="Email Address" filterMatchMode="contains">
-						<h:outputText value="#{traveler.emailAddress}" />
+						<h:outputText value="#{domesticTraveler.emailAddress}" />
+					</p:column>
+					
+					<p:column filterBy="#{domesticTraveler.photoIdentificationType}"
+						headerText="Photo ID Type" filterMatchMode="contains">
+						<h:outputText value="#{domesticTraveler.photoIdentificationType}" />
+					</p:column>
+					<p:column filterBy="#{domesticTraveler.photoIdentificationIssuer}"
+						headerText="Photo ID Issuer" filterMatchMode="contains">
+						<h:outputText value="#{domesticTraveler.photoIdentificationIssuer}" />
+					</p:column>
+					<p:column filterBy="#{domesticTraveler.photoIdentificationNumber}"
+						headerText="Photo ID Number" filterMatchMode="contains">
+						<h:outputText value="#{domesticTraveler.photoIdentificationNumber}" />
+					</p:column>
+				</p:dataTable>
+				
+				
+				<br /> <br />
+
+
+
+				<p:dataTable var="internationalTraveler" value="#{getInfoBean.internationalTravelers}"
+					widgetVar="travelersTable"
+					emptyMessage="No travelers found with given criteria" rows="4"
+					paginator="true" paginatorPosition="top">
+
+					<f:facet name="header">
+						<p:outputPanel>
+							<h:outputText value="Search all fields in International Travellers:" style="color: black;"/>
+							<p:inputText id="globalFilter"
+								onkeyup="PF('travelersTable').filter()" style="width:150px"
+								placeholder="Enter keyword" />
+						</p:outputPanel>
+					</f:facet>
+					<p:column filterBy="#{internationalTraveler.ID}" headerText="Traveller ID"
+						filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.ID}" />
+					</p:column>
+					<p:column filterBy="#{internationalTraveler.firstName}" headerText="First Name"
+						filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.firstName}" />
+					</p:column>
+					<p:column filterBy="#{internationalTraveler.lastName}" headerText="Last Name"
+						filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.lastName}" />
+					</p:column>
+					<p:column filterBy="#{internationalTraveler.residentialAddress}"
+						headerText="Residential Address" filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.residentialAddress}" />
+					</p:column>
+					<p:column filterBy="#{internationalTraveler.contactTelephone}"
+						headerText="Contact Telephone" filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.contactTelephone}" />
+					</p:column>
+					<p:column filterBy="#{internationalTraveler.emailAddress}"
+						headerText="Email Address" filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.emailAddress}" />
+					</p:column>
+					
+					<p:column filterBy="#{internationalTraveler.passportNumber}"
+						headerText="Passport Number" filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.passportNumber}" />
+					</p:column>
+					<p:column filterBy="#{internationalTraveler.passportCountry}"
+						headerText="Passport Country" filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.passportCountry}" />
+					</p:column>
+					<p:column filterBy="#{internationalTraveler.visaNumber}"
+						headerText="Visa Number" filterMatchMode="contains">
+						<h:outputText value="#{internationalTraveler.visaNumber}" />
 					</p:column>
 				</p:dataTable>
 

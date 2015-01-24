@@ -1,7 +1,10 @@
 package com.tbs.managedbean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+
+import javassist.expr.Instanceof;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -10,6 +13,8 @@ import javax.faces.bean.ViewScoped;
 
 import com.general.utils.WebUtils;
 import com.tbs.business.manage.Manageable;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.Traveler;
 import com.tbs.general.TBSException;
@@ -29,12 +34,28 @@ public class GetInfoBean implements Serializable {
 	
 	private List<Traveler> travelers;
 	
+	private List<DomesticTraveler> domesticTravelers;
+	
+	private List<InternationalTraveler> internationalTravelers;
+	
 	@PostConstruct
 	public void init(){
 		
 		try{
 			tourPackages = manage.getAllTourPackages();
 			travelers = manage.getAllTravelers();
+			domesticTravelers= new ArrayList<>();
+			internationalTravelers = new ArrayList<>();
+			
+			for(Traveler t : travelers)
+			{
+				if(t instanceof DomesticTraveler){
+					domesticTravelers.add((DomesticTraveler)t);
+				}
+				else if(t instanceof InternationalTraveler){
+					internationalTravelers.add((InternationalTraveler)t);
+				}
+			}
 			
 		} catch (TBSException e) {
 
@@ -53,21 +74,22 @@ public class GetInfoBean implements Serializable {
 		this.tourPackages = tourPackages;
 	}
 
-	public List<Traveler> getTravelers() {
-		
-		return travelers;
+	public List<DomesticTraveler> getDomesticTravelers() {
+		return domesticTravelers;
 	}
 
-	public void setTravelers(List<Traveler> travelers) {
-		this.travelers = travelers;
+	public void setDomesticTravelers(List<DomesticTraveler> domesticTravelers) {
+		this.domesticTravelers = domesticTravelers;
 	}
-	
 
-	public void getInfo(){
-		
+	public List<InternationalTraveler> getInternationalTravelers() {
+		return internationalTravelers;
 	}
-	
-	public void resetAttributes(){
-		
+
+
+	public void setInternationalTravelers(
+			List<InternationalTraveler> internationalTravelers) {
+		this.internationalTravelers = internationalTravelers;
 	}
+
 }
