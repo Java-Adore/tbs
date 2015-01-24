@@ -57,7 +57,7 @@ public class TourPackage implements Serializable, Marker {
         joinColumns=
             @JoinColumn(name="tour_package_id", referencedColumnName="ID"),
         inverseJoinColumns=
-            @JoinColumn(name="traveller_id", referencedColumnName="ID")
+            @JoinColumn(name="traveler_id", referencedColumnName="ID")
         )
     private List<Traveler> travelers;	
 	

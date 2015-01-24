@@ -7,8 +7,8 @@
 	<persistence-unit name="primary">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.tbs.entity.Traveler</class>
-		<class>com.tbs.entity.InternationalTraveller</class>
-		<class>com.tbs.entity.DomesticTraveller</class>
+		<class>com.tbs.entity.InternationalTraveler</class>
+		<class>com.tbs.entity.DomesticTraveler</class>
 		<class>com.tbs.entity.TourPackage</class>
 		<class>com.tbs.entity.TourSales</class>
 
@@ -17,13 +17,13 @@
 			<!-- Properties for Hibernate -->
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:derby://localhost:1527/myDB;create=true;" />
+				value="jdbc:derby://localhost:1527/TBS_DB;create=true;" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="root" />
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
 			<!-- Second stratigy -->
-			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true" />
 
  

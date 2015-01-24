@@ -8,8 +8,8 @@ import javax.ejb.Stateless;
 
 import com.tbs.dao.TourPackageDAO;
 import com.tbs.dao.TravelerDAO;
-import com.tbs.entity.DomesticTraveller;
-import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.Traveler;
 import com.tbs.general.*;
@@ -23,7 +23,7 @@ public class TravelerServiceImpl implements TravelerService {
 	TravelerDAO travellerDAO;
 
 	@Override
-	public Traveler addDomesticTraveller(DomesticTraveller domesticTraveller)
+	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveller)
 			throws TBSException {
 		
 		return travellerDAO.addDomesticTraveller(domesticTraveller);
@@ -31,7 +31,7 @@ public class TravelerServiceImpl implements TravelerService {
 
 	@Override
 	public Traveler addInternationalTraveller(
-			InternationalTraveller internationalTraveller) throws TBSException {
+			InternationalTraveler internationalTraveller) throws TBSException {
 		
 		return travellerDAO.addInternationalTraveller(internationalTraveller);
 	}

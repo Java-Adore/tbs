@@ -3,6 +3,7 @@ package com.tbs.managedbean;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -32,31 +33,26 @@ public class TourSalesDetailsBean implements Serializable {
 	private Long selectedTourPackageID;
 	private Long selectedTravelerID;
 	
-	public List<TourPackage> getTourPackages() {
-
+	@PostConstruct
+	public void init(){
 		try {
 			
 			tourPackages = manage.getAllTourPackages();
-			
-		} catch (TBSException e) {
-
-			WebUtils.fireErrorMessage(e.getMessageKey());
-		}
-		
-		return tourPackages;
-	}
-
-
-	public List<Traveler> getTravelers() {
-		
-		try {
-			
 			travelers = manage.getAllTravelers();
 			
 		} catch (TBSException e) {
 
 			WebUtils.fireErrorMessage(e.getMessageKey());
 		}
+	}
+	
+	public List<TourPackage> getTourPackages() {
+
+		return tourPackages;
+	}
+
+
+	public List<Traveler> getTravelers() {
 		
 		return travelers;
 	}

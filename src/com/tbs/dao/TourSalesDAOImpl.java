@@ -8,8 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import com.tbs.entity.DomesticTraveller;
-import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.TourSales;
 import com.tbs.entity.Traveler;

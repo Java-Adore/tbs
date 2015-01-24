@@ -56,7 +56,10 @@ public abstract class AbstractDAO<T extends Marker> implements Serializable {
 			if (transaction.isActive() == false) {
 				transaction.begin();
 			}
-			t = entityManager.merge(t);
+			if(t.getID()!=null)
+				t = entityManager.merge(t);
+			else
+				entityManager.persist(t);
 			transaction.commit();
 			return t;
 			

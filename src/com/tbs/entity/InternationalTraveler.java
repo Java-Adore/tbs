@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import com.tbs.general.Marker;
 
 @Entity
-@Table(name="international_travellers")
-public class InternationalTraveller extends Traveler implements Serializable,Marker{
+@Table(name="international_travelers")
+public class InternationalTraveler extends Traveler implements Serializable,Marker{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -24,11 +24,11 @@ public class InternationalTraveller extends Traveler implements Serializable,Mar
 	private String visaNumber;
 
 	
-	public InternationalTraveller(){
+	public InternationalTraveler(){
 		
 	}
 	
-	public InternationalTraveller(String firstName, String lastName, String residentialAddress,
+	public InternationalTraveler(String firstName, String lastName, String residentialAddress,
 			String contactTelephone, String emailAddress, String passportNumber,
 			String passportCountry, String visaNumber){
 		

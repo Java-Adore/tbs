@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import com.tbs.general.Marker;
 
 @Entity
-@Table(name="travellers")
+@Table(name="travelers")
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Traveler implements Serializable,Marker{
 	
@@ -47,7 +47,7 @@ public class Traveler implements Serializable,Marker{
 	@ManyToMany
     @JoinTable(name="tour_sales",
         joinColumns=
-            @JoinColumn(name="traveller_id", referencedColumnName="ID"),
+            @JoinColumn(name="traveler_id", referencedColumnName="ID"),
         inverseJoinColumns=
             @JoinColumn(name="tour_package_id", referencedColumnName="ID")
         )

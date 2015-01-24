@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import com.tbs.entity.DomesticTraveller;
-import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.TourSales;
 import com.tbs.entity.Traveler;
@@ -32,11 +32,11 @@ public interface Manageable extends Serializable{
 	public TourSales addTourSales(Long selectedTourPackage, Long selectedTraveller) throws TBSException;
 	
 	//Traveller methods
-	public DomesticTraveller addDomesticTraveller(String firstName, String lastName, String residentialAddress,
+	public DomesticTraveler addDomesticTraveller(String firstName, String lastName, String residentialAddress,
 			String contactTelephone, String emailAddress, String photoIdentificationType,
 			String photoIdentificationIssuer, String photoIdentificationNumber) throws TBSException;
 	
-	public InternationalTraveller addInternationalTraveller(String firstName, String lastName, String residentialAddress,
+	public InternationalTraveler addInternationalTraveller(String firstName, String lastName, String residentialAddress,
 			String contactTelephone, String emailAddress, String passportNumber,
 			String passportCountry, String visaNumber) throws TBSException;
 }

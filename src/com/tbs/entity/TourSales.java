@@ -28,16 +28,16 @@ public class TourSales implements Marker, Serializable {
 	private TourPackage tourPackage;
 	
 	@ManyToOne
-	@JoinColumn(name="traveller_id", referencedColumnName="ID")
-	private Traveler traveller;
+	@JoinColumn(name="traveler_id", referencedColumnName="ID")
+	private Traveler traveler;
 	
 	
 	public TourSales(){
 		
 	}
-	public TourSales(TourPackage tourPackage, Traveler traveller) {
+	public TourSales(TourPackage tourPackage, Traveler traveler) {
 		this.setTourPackage(tourPackage);
-		this.setTraveller(traveller);
+		this.setTraveler(traveler);
 	}
 
 	@Override
@@ -59,12 +59,12 @@ public class TourSales implements Marker, Serializable {
 		this.tourPackage = tourPackage;
 	}
 
-	public Traveler getTraveller() {
-		return traveller;
+	public Traveler getTraveler() {
+		return traveler;
 	}
 
-	public void setTraveller(Traveler traveller) {
-		this.traveller = traveller;
+	public void setTraveler(Traveler traveler) {
+		this.traveler = traveler;
 	}
 	@Override
 	public int hashCode() {

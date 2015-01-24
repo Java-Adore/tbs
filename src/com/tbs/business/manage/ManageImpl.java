@@ -10,8 +10,8 @@ import com.tbs.business.service.GetInfoService;
 import com.tbs.business.service.TourPackageService;
 import com.tbs.business.service.TourSalesService;
 import com.tbs.business.service.TravelerService;
-import com.tbs.entity.DomesticTraveller;
-import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.TourSales;
 import com.tbs.entity.Traveler;
@@ -72,16 +72,16 @@ public class ManageImpl implements Manageable {
 	}
 
 	@Override
-	public DomesticTraveller addDomesticTraveller(String firstName,
+	public DomesticTraveler addDomesticTraveller(String firstName,
 			String lastName, String residentialAddress,
 			String contactTelephone, String emailAddress,
 			String photoIdentificationType, String photoIdentificationIssuer,
 			String photoIdentificationNumber) throws TBSException {
 		
-		DomesticTraveller domesticTraveller = new DomesticTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
+		DomesticTraveler domesticTraveller = new DomesticTraveler(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
 		
 		try {
-			return (DomesticTraveller) travellerSrvice.addDomesticTraveller(domesticTraveller);
+			return (DomesticTraveler) travellerSrvice.addDomesticTraveller(domesticTraveller);
 		} catch (Exception e) {
 
 			throw Constants.TBS_TRAVELLER_CASTING_EXCEPTION;
@@ -89,14 +89,14 @@ public class ManageImpl implements Manageable {
 	}
 
 	@Override
-	public InternationalTraveller addInternationalTraveller(String firstName,
+	public InternationalTraveler addInternationalTraveller(String firstName,
 			String lastName, String residentialAddress,
 			String contactTelephone, String emailAddress,
 			String passportNumber, String passportCountry, String visaNumber) throws TBSException {
 		
-		InternationalTraveller internationalTraveller = new InternationalTraveller(firstName, lastName, residentialAddress, contactTelephone, emailAddress, passportNumber, passportCountry, visaNumber);
+		InternationalTraveler internationalTraveller = new InternationalTraveler(firstName, lastName, residentialAddress, contactTelephone, emailAddress, passportNumber, passportCountry, visaNumber);
 		try {
-			return (InternationalTraveller) travellerSrvice.addInternationalTraveller(internationalTraveller);
+			return (InternationalTraveler) travellerSrvice.addInternationalTraveller(internationalTraveller);
 		} catch (Exception e) {
 
 			throw Constants.TBS_TRAVELLER_CASTING_EXCEPTION;

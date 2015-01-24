@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import com.tbs.entity.DomesticTraveller;
-import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.entity.Traveler;
 import com.tbs.general.TBSException;
 
@@ -16,9 +16,9 @@ public interface TravelerDAO extends Serializable{
 	
 	public Traveler addTraveller(Traveler traveller);
 	
-	public Traveler addDomesticTraveller(DomesticTraveller domesticTraveller) throws TBSException;
+	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveller) throws TBSException;
 	
-	public Traveler addInternationalTraveller(InternationalTraveller internationalTraveller) throws TBSException;
+	public Traveler addInternationalTraveller(InternationalTraveler internationalTraveller) throws TBSException;
 	
 	public List<Traveler> getAllTravellers() throws TBSException;
 

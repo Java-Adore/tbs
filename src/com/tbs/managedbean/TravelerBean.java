@@ -9,8 +9,8 @@ import javax.faces.bean.ViewScoped;
 
 import com.general.utils.WebUtils;
 import com.tbs.business.manage.Manageable;
-import com.tbs.entity.DomesticTraveller;
-import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.general.Constants;
 import com.tbs.general.TBSException;
 
@@ -50,7 +50,7 @@ public class TravelerBean implements Serializable {
 	
 	private String visaNumber;
 	
-	private boolean domesticFlag;
+	private boolean domesticFlag=true;
 	private boolean internationalFlag;
 	
 	private String travelerType="domestic";
@@ -179,8 +179,8 @@ public class TravelerBean implements Serializable {
 		
 		try {
 			
-			DomesticTraveller domesticTraveller=null;
-			InternationalTraveller internationalTraveller=null;
+			DomesticTraveler domesticTraveller=null;
+			InternationalTraveler internationalTraveller=null;
 			
 			if(travelerType.equals("domestic")){
 				if(contactTelephone.length()<=10){

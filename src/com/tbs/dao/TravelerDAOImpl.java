@@ -8,8 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import com.tbs.entity.DomesticTraveller;
-import com.tbs.entity.InternationalTraveller;
+import com.tbs.entity.DomesticTraveler;
+import com.tbs.entity.InternationalTraveler;
 import com.tbs.entity.TourPackage;
 import com.tbs.entity.Traveler;
 import com.tbs.general.Constants;
@@ -32,12 +32,12 @@ public class TravelerDAOImpl extends AbstractDAO<Traveler> implements TravelerDA
 	}
 
 	@Override
-	public Traveler addDomesticTraveller(DomesticTraveller domesticTraveller) {
+	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveller) {
 		return super.persist(domesticTraveller);
 	}
 
 	@Override
-	public Traveler addInternationalTraveller(InternationalTraveller internationalTraveller) {
+	public Traveler addInternationalTraveller(InternationalTraveler internationalTraveller) {
 		return super.persist(internationalTraveller);
 	}
 
