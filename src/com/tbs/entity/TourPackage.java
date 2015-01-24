@@ -117,11 +117,9 @@ public class TourPackage implements Serializable, Marker {
 	public List<Traveler> getTravelers() {
 		return travelers;
 	}
-
 	public void setTravelers(List<Traveler> travelers) {
 		this.travelers = travelers;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -26,23 +26,23 @@ public class TravelerDAOImpl extends AbstractDAO<Traveler> implements TravelerDA
 	}
 
 	@Override
-	public Traveler addTraveller(Traveler traveller) {
+	public Traveler addTraveler(Traveler traveler) {
 
-		return super.persist(traveller);
+		return super.persist(traveler);
 	}
 
 	@Override
-	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveller) {
-		return super.persist(domesticTraveller);
+	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveler) {
+		return super.persist(domesticTraveler);
 	}
 
 	@Override
-	public Traveler addInternationalTraveller(InternationalTraveler internationalTraveller) {
-		return super.persist(internationalTraveller);
+	public Traveler addInternationalTraveler(InternationalTraveler internationalTraveler) {
+		return super.persist(internationalTraveler);
 	}
 
 	@Override
-	public List<Traveler> getAllTravellers() throws TBSException {
+	public List<Traveler> getAllTravelers() throws TBSException {
 		EntityTransaction transaction = getEntityManager().getTransaction();
 		List<Traveler> result = null;
 		try {
@@ -64,7 +64,7 @@ public class TravelerDAOImpl extends AbstractDAO<Traveler> implements TravelerDA
 	}
 
 	@Override
-	public Traveler getTravellerByID(Long travellerID) throws TBSException {
+	public Traveler getTravelerByID(Long travelerID) throws TBSException {
 		
 		EntityTransaction transaction = getEntityManager().getTransaction();
 		List<Traveler> queryResult = new ArrayList();
@@ -75,7 +75,7 @@ public class TravelerDAOImpl extends AbstractDAO<Traveler> implements TravelerDA
 				transaction.begin();
 			}
 			Query query = getEntityManager().createQuery("from Traveler t where t.ID=:travellerID");
-			query.setParameter("travellerID", travellerID);
+			query.setParameter("travellerID", travelerID);
 			
 			queryResult = query.getResultList();
 			if(queryResult.size()>0)

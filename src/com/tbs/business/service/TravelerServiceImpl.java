@@ -33,13 +33,13 @@ public class TravelerServiceImpl implements TravelerService {
 	public Traveler addInternationalTraveller(
 			InternationalTraveler internationalTraveller) throws TBSException {
 		
-		return travellerDAO.addInternationalTraveller(internationalTraveller);
+		return travellerDAO.addInternationalTraveler(internationalTraveller);
 	}
 
 	@Override
 	public List<Traveler> getAllTravellers() throws TBSException {
 		
-		return travellerDAO.getAllTravellers();
+		return travellerDAO.getAllTravelers();
 	}
 	
 	

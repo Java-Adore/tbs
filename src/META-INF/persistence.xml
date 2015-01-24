@@ -6,7 +6,6 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="primary">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>com.tbs.entity.Traveler</class>
 		<class>com.tbs.entity.InternationalTraveler</class>
 		<class>com.tbs.entity.DomesticTraveler</class>
 		<class>com.tbs.entity.TourPackage</class>
@@ -23,7 +22,7 @@
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
 			<!-- Second stratigy -->
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
 			<property name="hibernate.show_sql" value="true" />
 
  

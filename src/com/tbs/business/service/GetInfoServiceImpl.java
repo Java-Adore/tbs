@@ -48,7 +48,7 @@ public class GetInfoServiceImpl implements GetInfoService {
 	@Override
 	public List<Traveler> getAllTravelers() throws TBSException {
 		// TODO Auto-generated method stub
-		return travelerDAO.getAllTravellers();
+		return travelerDAO.getAllTravelers();
 	}
 
 

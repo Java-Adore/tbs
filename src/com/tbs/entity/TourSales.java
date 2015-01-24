@@ -62,10 +62,11 @@ public class TourSales implements Marker, Serializable {
 	public Traveler getTraveler() {
 		return traveler;
 	}
-
 	public void setTraveler(Traveler traveler) {
 		this.traveler = traveler;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

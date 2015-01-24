@@ -14,13 +14,13 @@ import com.tbs.general.TBSException;
 @Local
 public interface TravelerDAO extends Serializable{
 	
-	public Traveler addTraveller(Traveler traveller);
+	public Traveler addTraveler(Traveler traveller);
 	
 	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveller) throws TBSException;
 	
-	public Traveler addInternationalTraveller(InternationalTraveler internationalTraveller) throws TBSException;
+	public Traveler addInternationalTraveler(InternationalTraveler internationalTraveller) throws TBSException;
 	
-	public List<Traveler> getAllTravellers() throws TBSException;
+	public List<Traveler> getAllTravelers() throws TBSException;
 
-	public Traveler getTravellerByID(Long travellerID) throws TBSException;
+	public Traveler getTravelerByID(Long travellerID) throws TBSException;
 }

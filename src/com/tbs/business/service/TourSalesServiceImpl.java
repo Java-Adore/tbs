@@ -39,7 +39,7 @@ public class TourSalesServiceImpl implements TourSalesService {
 	@Override
 	public List<Traveler> getAllTravellers() throws TBSException {
 		
-		return travellerDAO.getAllTravellers();
+		return travellerDAO.getAllTravelers();
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class TourSalesServiceImpl implements TourSalesService {
 			Long travellerID) throws TBSException{
 		
 		
-		TourSales tourSales = new TourSales(tourPackageDAO.getTourPackageByID(tourPackageID), travellerDAO.getTravellerByID(travellerID));
+		TourSales tourSales = new TourSales(tourPackageDAO.getTourPackageByID(tourPackageID), travellerDAO.getTravelerByID(travellerID));
 		
 		return tourSalesDAO.addNewTourSales(tourSales);
 	}
