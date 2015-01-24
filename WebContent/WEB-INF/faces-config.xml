@@ -29,5 +29,17 @@
         </locale-config>
      </application>
 	
+	<navigation-rule>
+	    <from-view-id>addTraveler.xhtml</from-view-id> 
+    </navigation-rule>
+    <navigation-rule>
+	    <from-view-id>addTourPackage.xhtml</from-view-id> 
+    </navigation-rule>
+    <navigation-rule>
+	    <from-view-id>addTourSales.xhtml</from-view-id> 
+    </navigation-rule>
+    <navigation-rule>
+	    <from-view-id>getInfo.xhtml</from-view-id> 
+    </navigation-rule>
      
 </faces-config>
