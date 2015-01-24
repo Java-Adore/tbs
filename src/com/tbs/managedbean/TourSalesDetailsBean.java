@@ -26,11 +26,11 @@ public class TourSalesDetailsBean implements Serializable {
 	
 	private List<TourPackage> tourPackages;
 	
-	private List<Traveler> travellers;
+	private List<Traveler> travelers;
 	
 	
 	private Long selectedTourPackageID;
-	private Long selectedTravellerID;
+	private Long selectedTravelerID;
 	
 	public List<TourPackage> getTourPackages() {
 
@@ -47,18 +47,18 @@ public class TourSalesDetailsBean implements Serializable {
 	}
 
 
-	public List<Traveler> getTravellers() {
+	public List<Traveler> getTravelers() {
 		
 		try {
 			
-			travellers = manage.getAllTravellers();
+			travelers = manage.getAllTravelers();
 			
 		} catch (TBSException e) {
 
 			WebUtils.fireErrorMessage(e.getMessageKey());
 		}
 		
-		return travellers;
+		return travelers;
 	}
 
 
@@ -72,13 +72,13 @@ public class TourSalesDetailsBean implements Serializable {
 	}
 
 
-	public Long getSelectedTravellerID() {
-		return selectedTravellerID;
+	public Long getSelectedTravelerID() {
+		return selectedTravelerID;
 	}
 
 
-	public void setSelectedTravellerID(Long selectedTravellerID) {
-		this.selectedTravellerID = selectedTravellerID;
+	public void setSelectedTravelerID(Long selectedTravelerID) {
+		this.selectedTravelerID = selectedTravelerID;
 	}
 
 
@@ -86,15 +86,15 @@ public class TourSalesDetailsBean implements Serializable {
 		
 		
 		try {
-			if(tourPackages.size()==0 && travellers.size()==0)
+			if(tourPackages.size()==0 && travelers.size()==0)
 			{
 				WebUtils.fireInfoMessage(Constants.TOUR_SALES_NO_DATA_FOUND);
 			}
-			else if(selectedTourPackageID==null && selectedTravellerID==null){
+			else if(selectedTourPackageID==null && selectedTravelerID==null){
 				WebUtils.fireInfoMessage(Constants.TOUR_SALES_PLEASE_SELECT_DATA);
 			}
 			else{
-				manage.addTourSales(selectedTourPackageID, selectedTravellerID);
+				manage.addTourSales(selectedTourPackageID, selectedTravelerID);
 				WebUtils.fireInfoMessage(Constants.TOUR_SALES_ADDED_SUCCESSFULLY);
 			}
 			

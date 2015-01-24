@@ -27,14 +27,14 @@ public class GetInfoBean implements Serializable {
 	
 	private List<TourPackage> tourPackages;
 	
-	private List<Traveler> travellers;
+	private List<Traveler> travelers;
 	
 	@PostConstruct
 	public void init(){
 		
 		try{
 			tourPackages = manage.getAllTourPackages();
-			travellers = manage.getAllTravelers();
+			travelers = manage.getAllTravelers();
 			
 		} catch (TBSException e) {
 
@@ -53,13 +53,13 @@ public class GetInfoBean implements Serializable {
 		this.tourPackages = tourPackages;
 	}
 
-	public List<Traveler> getTravellers() {
+	public List<Traveler> getTravelers() {
 		
-		return travellers;
+		return travelers;
 	}
 
-	public void setTravellers(List<Traveler> travellers) {
-		this.travellers = travellers;
+	public void setTravelers(List<Traveler> travelers) {
+		this.travelers = travelers;
 	}
 	
 

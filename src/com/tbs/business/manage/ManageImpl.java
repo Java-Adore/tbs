@@ -65,11 +65,6 @@ public class ManageImpl implements Manageable {
 	
 
 	@Override
-	public List<Traveler> getAllTravellers() throws TBSException {
-		return tourSalesService.getAllTravellers();
-	}
-
-	@Override
 	public TourSales addTourSales(Long selectedTourPackage,
 			Long selectedTraveller) throws TBSException{
 		

@@ -18,17 +18,16 @@ public interface Manageable extends Serializable{
 	
 	//Common Methods
 	public List<TourPackage> getAllTourPackages() throws TBSException;
+	public List<Traveler> getAllTravelers() throws TBSException;
 	
 	//GetInformation methods
 	public List<TourSales> getAllTourSales() throws TBSException;
 	
-	public List<Traveler> getAllTravelers() throws TBSException;
 	
 	//TourPackage methods
 	public TourPackage addNewTourPackage(String tourCode, String vehicleNumberPlate, Date tourDate, String departFrom, String detination) throws TBSException;
 	
 	//TourSales methods
-	public List<Traveler> getAllTravellers() throws TBSException;
 
 	public TourSales addTourSales(Long selectedTourPackage, Long selectedTraveller) throws TBSException;
 	

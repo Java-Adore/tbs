@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>t-b-s</groupId>
-	<artifactId>t-b-s</artifactId>
+	<groupId>tbs</groupId>
+	<artifactId>tbs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<build>
@@ -45,14 +45,14 @@
 
 
 
-		<!-- PrimeFaces -->
+		
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>5.0</version>
 		</dependency>
 
-		<!-- Primefaces Theme Library -->
+		
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>all-themes</artifactId>
@@ -60,10 +60,6 @@
 		</dependency> 
 
  
-
-
-		<!-- For Java EE Application Server, uncomment this library and comment 
-			the rest of the libraries -->
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -72,13 +68,7 @@
 		</dependency>
 
 
-		<!-- For Servlet Container like Tomcat -->
-		<!-- http://download.java.net/maven/2 -->
-		<!-- JSF 2 -->
-		<!-- <dependency> <groupId>com.sun.faces</groupId> <artifactId>jsf-api</artifactId> 
-			<version>2.1.11</version> </dependency> <dependency> <groupId>com.sun.faces</groupId> 
-			<artifactId>jsf-impl</artifactId> <version>2.1.11</version> </dependency> -->
-
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -91,7 +81,7 @@
 			<version>2.1</version>
 		</dependency>
 
-		<!-- EL -->
+		
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>el-impl</artifactId>
@@ -99,7 +89,7 @@
 		</dependency>
 
 
-		<!-- Log4j library -->
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -107,7 +97,7 @@
 		</dependency>
 
 
-		<!-- derby CONNECTOR -->
+		
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
@@ -129,7 +119,7 @@
 			<version>10.11.1.1</version>
 		</dependency>
 
-		<!-- JPA -->
+		
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -153,31 +143,7 @@
 			<version>3.12.1.GA</version>
 		</dependency>
 		
-		<!-- JPA -->
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.0.1.Final</version>
-		</dependency>
-		<dependency> 
-			<groupId>javax</groupId>
-			 <artifactId>javaee-api</artifactId> 
-			<version>7.0</version> 
-			<scope>compile</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.12.1.GA</version>
-		</dependency>
 
-		<!-- for JSON object back from weather service -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
