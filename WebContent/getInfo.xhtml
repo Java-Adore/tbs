@@ -24,7 +24,7 @@
 
 					<f:facet name="header">
 						<p:outputPanel>
-							<h:outputText value="Search all fields in package:" />
+							<h:outputText value="Search all fields in package:" style="color: black;"/>
 							<p:inputText id="globalFilter"
 								onkeyup="PF('tourPackagesTable').filter()" style="width:150px"
 								placeholder="Enter keyword" />
@@ -52,8 +52,7 @@
 					</p:column>
 					<p:column headerText="Travelers in package (ID)">
 
-						<h:selectOneMenu
-							value="#{tourSalesDetailsBean.selectedTourPackageID}">
+						<h:selectOneMenu>
 							<f:selectItems value="#{tourPackage.travelers}" var="traveler"
 								itemLabel="#{traveler.ID}" itemValue="#{traveler.ID}" />
 						</h:selectOneMenu>
@@ -73,12 +72,16 @@
 
 					<f:facet name="header">
 						<p:outputPanel>
-							<h:outputText value="Search all fields in Travellers:" />
+							<h:outputText value="Search all fields in Travellers:" style="color: black;"/>
 							<p:inputText id="globalFilter"
 								onkeyup="PF('travelersTable').filter()" style="width:150px"
 								placeholder="Enter keyword" />
 						</p:outputPanel>
 					</f:facet>
+					<p:column filterBy="#{traveler.ID}" headerText="Traveller ID"
+						filterMatchMode="contains">
+						<h:outputText value="#{traveler.ID}" />
+					</p:column>
 					<p:column filterBy="#{traveler.firstName}" headerText="First Name"
 						filterMatchMode="contains">
 						<h:outputText value="#{traveler.firstName}" />
