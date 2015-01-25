@@ -20,26 +20,26 @@ public class TravelerServiceImpl implements TravelerService {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	TravelerDAO travellerDAO;
+	TravelerDAO travelerDAO;
 
 	@Override
-	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveller)
+	public Traveler addDomesticTraveler(DomesticTraveler domesticTraveler)
 			throws TBSException {
 		
-		return travellerDAO.addDomesticTraveller(domesticTraveller);
+		return travelerDAO.addDomesticTraveler(domesticTraveler);
 	}
 
 	@Override
-	public Traveler addInternationalTraveller(
-			InternationalTraveler internationalTraveller) throws TBSException {
+	public Traveler addInternationalTraveler(
+			InternationalTraveler internationalTraveler) throws TBSException {
 		
-		return travellerDAO.addInternationalTraveler(internationalTraveller);
+		return travelerDAO.addInternationalTraveler(internationalTraveler);
 	}
 
 	@Override
-	public List<Traveler> getAllTravellers() throws TBSException {
+	public List<Traveler> getAllTravelers() throws TBSException {
 		
-		return travellerDAO.getAllTravelers();
+		return travelerDAO.getAllTravelers();
 	}
 	
 	

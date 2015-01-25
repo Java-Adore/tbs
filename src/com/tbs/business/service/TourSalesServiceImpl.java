@@ -22,7 +22,7 @@ public class TourSalesServiceImpl implements TourSalesService {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
-	TravelerDAO travellerDAO;
+	TravelerDAO travelerDAO;
 
 	@EJB
 	TourPackageDAO tourPackageDAO;
@@ -37,17 +37,17 @@ public class TourSalesServiceImpl implements TourSalesService {
 	}
 
 	@Override
-	public List<Traveler> getAllTravellers() throws TBSException {
+	public List<Traveler> getAllTravelers() throws TBSException {
 		
-		return travellerDAO.getAllTravelers();
+		return travelerDAO.getAllTravelers();
 	}
 
 	@Override
 	public TourSales addTourSales(Long tourPackageID,
-			Long travellerID) throws TBSException{
+			Long travelerID) throws TBSException{
 		
 		
-		TourSales tourSales = new TourSales(tourPackageDAO.getTourPackageByID(tourPackageID), travellerDAO.getTravelerByID(travellerID));
+		TourSales tourSales = new TourSales(tourPackageDAO.getTourPackageByID(tourPackageID), travelerDAO.getTravelerByID(travelerID));
 		
 		return tourSalesDAO.addNewTourSales(tourSales);
 	}

@@ -32,7 +32,7 @@ public class TravelerDAOImpl extends AbstractDAO<Traveler> implements TravelerDA
 	}
 
 	@Override
-	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveler) {
+	public Traveler addDomesticTraveler(DomesticTraveler domesticTraveler) {
 		return super.persist(domesticTraveler);
 	}
 

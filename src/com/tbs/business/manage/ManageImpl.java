@@ -81,7 +81,7 @@ public class ManageImpl implements Manageable {
 		DomesticTraveler domesticTraveller = new DomesticTraveler(firstName, lastName, residentialAddress, contactTelephone, emailAddress, photoIdentificationType, photoIdentificationIssuer, photoIdentificationNumber);
 		
 		try {
-			return (DomesticTraveler) travellerSrvice.addDomesticTraveller(domesticTraveller);
+			return (DomesticTraveler) travellerSrvice.addDomesticTraveler(domesticTraveller);
 		} catch (Exception e) {
 
 			throw Constants.TBS_TRAVELLER_CASTING_EXCEPTION;
@@ -96,7 +96,7 @@ public class ManageImpl implements Manageable {
 		
 		InternationalTraveler internationalTraveller = new InternationalTraveler(firstName, lastName, residentialAddress, contactTelephone, emailAddress, passportNumber, passportCountry, visaNumber);
 		try {
-			return (InternationalTraveler) travellerSrvice.addInternationalTraveller(internationalTraveller);
+			return (InternationalTraveler) travellerSrvice.addInternationalTraveler(internationalTraveller);
 		} catch (Exception e) {
 
 			throw Constants.TBS_TRAVELLER_CASTING_EXCEPTION;

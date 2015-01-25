@@ -17,9 +17,9 @@ import com.tbs.general.TBSException;
 @Local
 public interface TourSalesService extends Serializable{
 
-	public List<Traveler> getAllTravellers() throws TBSException;
+	public List<Traveler> getAllTravelers() throws TBSException;
 	
 	public List<TourPackage> getAllTourPackages() throws TBSException;
 
-	public TourSales addTourSales(Long tourPackageID, Long travellerID) throws TBSException;
+	public TourSales addTourSales(Long tourPackageID, Long travelerID) throws TBSException;
 }

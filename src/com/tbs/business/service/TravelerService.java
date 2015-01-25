@@ -16,9 +16,9 @@ import com.tbs.general.TBSException;
 @Local
 public interface TravelerService extends Serializable{
 
-	public Traveler addDomesticTraveller(DomesticTraveler domesticTraveller) throws TBSException;
+	public Traveler addDomesticTraveler(DomesticTraveler domesticTraveler) throws TBSException;
 	
-	public Traveler addInternationalTraveller(InternationalTraveler internationalTraveller) throws TBSException;
+	public Traveler addInternationalTraveler(InternationalTraveler internationalTraveler) throws TBSException;
 
-	public List<Traveler> getAllTravellers() throws TBSException;
+	public List<Traveler> getAllTravelers() throws TBSException;
 }
